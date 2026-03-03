@@ -66,7 +66,7 @@ export default function TestimonialsPage() {
 
           <div className={styles.textBlock}>
             <p>
-              “Transparent process and excellent service. We can actually see what's being grown.”
+              “Transparent process and excellent service. We can actually see what&#39;s being grown.”
             </p>
             <h4>Amit Verma</h4>
             <span>Product Designer at Martina.co</span>
