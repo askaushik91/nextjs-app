@@ -1,0 +1,141 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  padding-top: 5rem; // below fixed header
+}
+
+.section {
+  @include section-padding;
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: $color-text-on-light;
+  margin: 0 0 $spacing-md;
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: $color-text-on-light;
+  opacity: 0.9;
+  margin: 0 0 $spacing-2xl;
+  max-width: 640px;
+}
+
+.content {
+  color: $color-text-on-light;
+  line-height: 1.7;
+
+  h2 {
+    font-size: 1.25rem;
+    margin: $spacing-xl 0 $spacing-md;
+  }
+
+  p {
+    margin: 0 0 $spacing-md;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 $spacing-md;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+
+  a {
+    color: $color-green-primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.steps {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
+
+  li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: $spacing-lg;
+    counter-increment: step;
+
+    &::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: $color-green-primary;
+      color: $color-white;
+      border-radius: 50%;
+      @include flex-center;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.quote {
+  padding: $spacing-xl;
+  background: $color-light-green;
+  border-radius: 8px;
+  border-left: 4px solid $color-green-primary;
+  margin: 0;
+
+  p {
+    margin: 0 0 $spacing-md;
+    font-style: italic;
+  }
+
+  footer {
+    font-size: 0.9375rem;
+    color: $color-green-accent;
+
+    cite {
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+}
+
+.contactBlock {
+  margin-bottom: $spacing-lg;
+
+  h2 {
+    font-size: 1rem;
+    margin: 0 0 $spacing-xs;
+    color: $color-text-on-light;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $color-green-primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.note {
+  margin-top: $spacing-xl;
+  padding: $spacing-md;
+  background: rgba($color-green-primary, 0.08);
+  border-radius: 4px;
+  font-size: 0.9375rem;
+}

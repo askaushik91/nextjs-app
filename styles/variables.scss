@@ -1,0 +1,45 @@
+// Gill Organics – Design tokens
+// Use with: @use '@/styles/variables' as *;
+
+// Colors – green palette, off-white, dark
+$color-dark-green: #052D23;
+$color-dark-green-deep: #142e25;
+$color-green-primary: #163C32;
+$color-green-bg: #C6D6B1;
+$color-green-accent: #4a7c6b;
+$color-green-tagline: #51FF00;
+$color-light-green: #1E4239;
+$color-bg-light-green: #DAE2CB;
+$color-off-white: #f5f7f2;
+$color-white: #ffffff;
+$color-text-on-dark: #ffffff;
+$color-text-on-light: #102E16;
+$color-text-on-light-grey:#828282;
+
+// Typography (MATCHES layout.tsx)
+$font-heading: var(--font-heading), Georgia, serif;
+$font-body: var(--font-body), system-ui, sans-serif;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+$spacing-4xl: 6rem;
+
+// Layout
+$container-max-width: 1200px;
+$container-padding: 1.5rem;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Transitions
+$transition-duration: 0.3s;
+$transition-ease: ease;

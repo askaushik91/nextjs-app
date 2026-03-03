@@ -1,0 +1,53 @@
+// Gill Organics – SCSS mixins
+// Use with: @use '@/styles/mixins' as *;
+
+@use 'variables' as *;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($properties: all) {
+  transition: $properties $transition-duration $transition-ease;
+}
+
+@mixin section-padding {
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  @include respond-to('lg') {
+    padding-top: $spacing-4xl;
+    padding-bottom: $spacing-4xl;
+  }
+}
+
+@mixin decorative-heading {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 700;
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}

@@ -1,0 +1,324 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  background-color: $color-dark-green;
+  padding: $spacing-4xl * 2 0 0 0;
+  overflow: hidden;
+
+  &__container {
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__deco {
+    position: absolute;
+    right: 8%;
+    top: 30px;
+    font-size:12rem;
+    font-weight: 700;
+    color: $color-white;
+    opacity: 0.08;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-2xl;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: $spacing-4xl;
+    }
+  }
+
+  &__imageWrap {
+    order: 1;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 9 / 11;
+
+    @include respond-to('lg') {
+      order: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    max-width: 560px;
+  }
+
+  &__subheading {
+    font-family: $font-body;
+    font-size:1rem;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: $color-green-tagline;
+    margin: 0 0 $spacing-md;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:32px;
+
+    &:before {
+      content:'';
+      width:72px;
+      height:1px;
+      background:$color-green-tagline;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(3.6rem, 3vw, 2.25rem);
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    font-weight:400;
+  }
+
+  &__text {
+    color: rgba($color-white, 0.9);
+    margin: 0 0 $spacing-md;
+    line-height: 1.7;
+  }
+
+  &__textHighlight {
+    color:$color-green-tagline;
+    font-size:1.1rem;
+    font-weight:400;
+    font-family:$font-body;
+  }
+
+  &__textlist {
+    margin:$spacing-md 0 $spacing-md 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+
+    li {
+      color: rgba($color-white, 0.9);
+      margin: 0 0 $spacing-md;
+      list-style-type:none;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+  }
+}
+
+.ctaBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  margin-top: $spacing-4xl * 2;
+  padding: $spacing-4xl $spacing-lg;
+  background: $color-green-primary;
+  position: relative;
+  overflow:hidden;
+
+  &:before {
+    content:'';
+    position:absolute;
+    top:0;
+    right:-50px;
+    background:url(/images/whyChooseCtaBg.svg) no-repeat;
+    width:1044px;
+    height:833px;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-lg;
+    position:relative;
+  }
+
+  &__text {
+    margin: 0;
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+    span {
+      color: $color-white;
+      font-weight: 600;
+      font-size:52px;
+      line-height:55px;
+    }
+  }
+
+  a {
+    border-radius:15px 30px 15px 30px;
+    padding:15px 30px;
+    color:$color-white;
+    font-weight:400;
+    font-size:18px;
+    background:$color-text-on-light;
+    border:0px;
+    margin:0;
+  }
+
+  &__texticon {
+    font-size:52px;
+  }
+}
+
+
+/* ================= MOBILE RESPONSIVE ONLY ================= */
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding: 80px 0 0 0;
+  }
+
+  .section__deco {
+    font-size: 6rem;
+    right: 4%;
+    top: 10px;
+  }
+
+  .section__heading {
+    font-size: 2.8rem;
+  }
+
+  .section__grid {
+    gap: 40px;
+  }
+
+  .ctaBar {
+    margin-top: 80px;
+    padding: 60px 20px;
+  }
+
+  .ctaBar__text span {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .ctaBar__texticon {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section {
+    padding: 60px 0 0 0;
+  }
+
+  .section__deco {
+    font-size: 4rem;
+    opacity: 0.05;
+  }
+
+  .section__subheading {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    gap: 16px;
+
+    &:before {
+      width: 40px;
+    }
+  }
+
+  .section__heading {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .section__text {
+    font-size: 15px;
+  }
+
+  .section__textHighlight {
+    font-size: 1rem;
+  }
+
+  .section__textlist li {
+    font-size: 15px;
+    gap: 10px;
+  }
+
+  .ctaBar__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .ctaBar__text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ctaBar__text span {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .ctaBar__texticon {
+    font-size: 28px;
+  }
+
+  .ctaBar a {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .section__deco {
+    display: none;
+  }
+
+  .section__heading {
+    font-size: 1.7rem;
+  }
+
+  .ctaBar {
+    padding: 40px 16px;
+  }
+
+  .ctaBar__text span {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .ctaBar__texticon {
+    font-size: 22px;
+  }
+
+  .ctaBar a {
+    width: 100%;
+    text-align: center;
+  }
+}

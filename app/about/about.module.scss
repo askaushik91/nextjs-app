@@ -1,0 +1,368 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  background-color: $color-dark-green;
+  padding: $spacing-4xl * 2 0px;
+  overflow: hidden;
+
+  &__deco {
+    position: absolute;
+    left: 5%;
+    top: 30px;
+    font-size:15rem;
+    font-weight: 700;
+    color: $color-light-green;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-2xl;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: $spacing-4xl;
+    }
+  }
+
+  &__content {
+    max-width: 560px;
+  }
+
+  &__subheading {
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: $color-green-tagline;
+    margin: 0 0 $spacing-md * 3;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:32px;
+
+    &:before {
+      content:'';
+      width:72px;
+      height:1px;
+      background:$color-green-tagline;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    color: $color-white;
+    margin-bottom: $spacing-lg;
+    font-weight:400;
+  }
+
+  &__text {
+    color: rgba($color-white, 0.9);
+    margin: 0 0 $spacing-md;
+    line-height: 1.7;
+  }
+
+  &__quoteBlock {
+    display:flex;
+    flex-direction:column;
+
+    h5 {
+      color: rgba($color-white, 0.9);
+      line-height: 1.7;
+      color:$color-off-white;
+      font-family: $font-body;
+      font-weight:400;
+      font-size:18px;
+      margin:0;
+    }
+
+    h2 {
+      font-size:22px;
+      font-weight:400;
+      margin-bottom:22px;
+      color:$color-green-tagline;
+      font-family: $font-body;
+    }
+  }
+
+  &__imageWrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 9 / 5;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.ourcores {
+    position: relative;
+    background-color: $color-bg-light-green;
+    padding: $spacing-4xl * 2 0px;
+    overflow: hidden;
+
+    &__grid {
+    display: grid;
+    gap: $spacing-2xl;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: $spacing-4xl;
+    }
+  }
+
+  &__subheading {
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: $color-dark-green;
+    margin: 0 0 $spacing-md;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:32px;
+
+    &:before {
+      content:'';
+      width:72px;
+      height:1px;
+      background:$color-dark-green;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(3.6rem, 3vw, 2.25rem);
+    color: $color-dark-green;
+    margin-bottom: $spacing-lg;
+    font-weight:400;
+    margin-bottom:$spacing-md * 4;
+  }
+
+  &__textlist {
+    margin:$spacing-md 0 $spacing-md 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+
+    li {
+      color:$color-dark-green;
+      list-style-type:none;
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+
+      svg {
+        margin-top:3px;
+      }
+
+      p {
+        margin:0;
+        padding:0;
+      }
+    }
+  }
+
+  &__imageWrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 9 / 11;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.ctaBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  padding: $spacing-4xl $spacing-lg;
+  background: $color-green-primary;
+  position: relative;
+  overflow:hidden;
+
+  &:before {
+    content:'';
+    position:absolute;
+    top:0;
+    right:-50px;
+    background:url(/images/whyChooseCtaBg.svg) no-repeat;
+    width:1044px;
+    height:833px;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-lg;
+    position:relative;
+  }
+
+  &__text {
+    margin: 0;
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+    span {
+      color: $color-white;
+      font-weight: 600;
+      font-size:52px;
+      line-height:55px;
+    }
+  }
+
+  a {
+    border-radius:15px 30px 15px 30px;
+    padding:15px 30px;
+    color:$color-white;
+    font-weight:400;
+    font-size:18px;
+    background:$color-text-on-light;
+    border:0px;
+    margin:0;
+  }
+
+  &__texticon {
+    font-size:52px;
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  /* SECTION SPACING */
+  .section {
+    padding: $spacing-3xl 0;
+  }
+
+  .section__grid {
+    gap: $spacing-xl;
+  }
+
+  /* Hide big background text on mobile */
+  .section__deco {
+    display: none;
+  }
+
+  /* Fix headings */
+  .section__heading {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  .section__subheading {
+    gap: 14px;
+
+    &:before {
+      width: 40px;
+    }
+  }
+
+  .section__text {
+    font-size: 0.95rem;
+  }
+
+  .section__quoteBlock h5 {
+    font-size: 15px;
+  }
+
+  .section__quoteBlock h2 {
+    font-size: 18px;
+  }
+
+  /* OUR CORES */
+  .ourcores {
+    padding: $spacing-3xl 0;
+  }
+
+  .ourcores__grid {
+    gap: $spacing-xl;
+  }
+
+  .ourcores__heading {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    margin-bottom: $spacing-lg;
+  }
+
+  .ourcores__textlist {
+    gap: 18px;
+  }
+
+  .ourcores__textlist li {
+    font-size: 0.95rem;
+  }
+
+  /* CTA BAR */
+  .ctaBar {
+    padding: $spacing-2xl $spacing-lg;
+    text-align: center;
+  }
+
+  .ctaBar__container {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .ctaBar__text {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .ctaBar__text span {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .ctaBar__texticon {
+    font-size: 28px;
+  }
+
+  .ctaBar a {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+
+  /* Remove big background shape overflow */
+  .ctaBar:before {
+    display: none;
+  }
+
+}
