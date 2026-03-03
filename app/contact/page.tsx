@@ -35,7 +35,7 @@ export default function ContactPage() {
           <div className={styles.header}>
             <h1>Get in touch</h1>
             <p>
-              We'd love to hear from you. Reach out anytime — we&#39;re here to help.
+              We&#39;d love to hear from you. Reach out anytime — we&#39;re here to help.
             </p>
           </div>
 
