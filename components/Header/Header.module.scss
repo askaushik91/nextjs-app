@@ -1,0 +1,254 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
+  @include transition(background-color);
+
+  &--solid {
+    background-color: $color-dark-green;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-inline: $spacing-lg;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-lg;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    color: $color-white;
+    flex-shrink: 0;
+    width: 198px;
+    height: 72px;
+
+    img {
+      width: 100% !important;
+      height:unset;
+    }
+
+    &:hover {
+      color: $color-white;
+      opacity: 0.9;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond-to('lg') {
+      display: flex;
+      align-items: center;
+      gap: $spacing-2xl;
+    }
+
+    &--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $color-dark-green;
+      padding: $spacing-xl;
+      gap: $spacing-lg;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__navLink {
+    color: $color-white;
+    font-weight:400;
+    text-transform:uppercase;
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-green-tagline;
+      @include transition(width);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__cta {
+    margin-top: $spacing-md;
+
+    a {
+      border:1px solid $color-green-tagline;
+      border-radius:15px 30px 15px 30px;
+      padding:10px 20px;
+      color:$color-green-tagline;
+      font-weight:400;
+      font-size:18px;
+      text-transform:uppercase;
+    } 
+
+    @include respond-to('lg') {
+      margin-top: 0;
+    }
+  }
+
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: $color-white;
+
+    @include respond-to('lg') {
+      display: none;
+    }
+  }
+
+  &__hamburgerLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    @include transition(transform opacity);
+  }
+}
+
+
+/* ================= HEADER RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+
+  .header__container {
+    padding-inline: 20px;
+  }
+
+  .header__logo {
+    width: 170px;
+    height: auto;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .header__inner {
+    gap: 10px;
+  }
+
+  .header__logo {
+    width: 150px;
+  }
+
+  .header__nav--open {
+    padding: 25px 20px;
+  }
+
+  .header__cta a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+/* ========= MOBILE HEADER STRUCTURE FIX ========= */
+
+@media (max-width: 768px) {
+
+  /* Smaller CTA button */
+  .header__cta a {
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 10px 20px 10px 20px;
+  }
+
+  .header__nav--open {
+    height: 100vh;
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 100px; /* space below header */
+  }
+
+  /* Make logo slightly bigger on mobile */
+  .header__logo {
+    width: 200px;
+    order: 2;
+    justify-self: center;
+  }
+
+  .header__logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .header__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  /* Move hamburger to left */
+  .header__hamburger {
+    order: 1;
+    justify-self: start;
+  }
+
+  /* Move CTA to right */
+  .header__cta {
+    order: 3;
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  /* Prevent CTA from stretching */
+  .header__cta a {
+    white-space: nowrap;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+}

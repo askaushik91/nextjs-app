@@ -1,0 +1,321 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.cloudFarm {
+  background: #163C32;
+  padding: 120px 20px;
+
+  &__container {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  &__heading {
+    text-align: center;
+    margin-bottom: 70px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    span {
+      font-family: $font-body;
+        font-size:1rem;
+        font-weight: 500;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        color: $color-green-tagline;
+        margin: 0 0 $spacing-md;
+        position:relative;
+        display:flex;
+        align-items:center;
+        gap:32px;
+
+      &::before {
+        content: '';
+        width: 55px;
+        height: 2px;
+        background: #72ff00;
+      }
+    }
+
+    h2 {
+      font-size: clamp(3.6rem, 3vw, 2.25rem);
+        color: $color-white;
+        margin-bottom: $spacing-md;
+        font-weight:400;
+    }
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 70px;
+  }
+
+  &__tab {
+    background: transparent;
+    border: none;
+    padding: 0 0 30px;
+
+    color: rgba(255,255,255,0.7);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    cursor: pointer;
+    position: relative;
+
+    transition: 0.3s ease;
+
+    span {
+      font-size:20px;
+      font-weight:300;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+
+      width: 0%;
+      height: 2px;
+
+      background: #72ff00;
+
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .active {
+    color: white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &__tabIcon {
+
+    svg {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    overflow: hidden;
+    border-radius: 12px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+
+    h3 {
+      color: #51FF00;
+      font-size:25px;
+      text-transform:uppercase;
+      font-weight:300;
+      font-family: $font-body;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin:30px 0 40px 0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+
+      li {
+        color: white;
+        font-size:16px;
+        font-weight:400;
+        line-height:28px;
+      }
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border:1px solid $color-green-tagline;
+      border-radius:15px 30px 15px 30px;
+      padding:10px 20px;
+      color:$color-green-tagline;
+      font-weight:400;
+      font-size:18px;
+      text-transform:uppercase;
+      background:transparent;
+
+      text-decoration: none;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: #72ff00;
+        color: #053b31;
+      }
+    }
+  }
+
+  &__vegetables {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+
+  h3 {
+    color: #51FF00;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: $font-body;
+    margin-bottom: 30px;
+  }
+}
+
+  &__vegGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    span {
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 14px 22px;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+    }
+  }
+}
+
+.cloudFarm__vegGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+
+  span {
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    color: #fff;
+  }
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 1100px) {
+
+    .cloudFarm {
+
+    &__vegetables {
+      grid-template-columns: 1fr;
+    }
+
+    &__vegGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cloudFarm {
+
+    &__heading {
+
+      h2 {
+        font-size: 48px;
+      }
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__image {
+      min-height: 500px;
+    }
+
+    &__tab {
+
+      span {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .cloudFarm {
+    padding: 80px 16px;
+
+    &__tabs {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      border-bottom: none;
+    }
+
+    &__tab {
+      padding-bottom: 20px;
+
+      span {
+        font-size: 18px;
+      }
+    }
+
+    &__tabIcon {
+
+      svg {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &__heading {
+
+      h2 {
+        font-size: 34px;
+      }
+    }
+
+    &__info {
+
+      h3 {
+        font-size: 28px;
+      }
+
+      ul {
+
+        li {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

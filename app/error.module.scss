@@ -1,0 +1,23 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.error {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-lg;
+  min-height: 50vh;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  &__heading {
+    font-size: 1.5rem;
+    color: $color-text-on-light;
+    margin: 0;
+  }
+
+  &__text {
+    margin: 0;
+    color: $color-text-on-light;
+    opacity: 0.9;
+  }
+}

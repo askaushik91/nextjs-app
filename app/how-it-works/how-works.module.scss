@@ -1,0 +1,253 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  position: relative;
+  background-color: $color-dark-green;
+  padding: $spacing-4xl * 2 $spacing-md;
+
+  &__container {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__grid {
+    display: flex;
+    justify-content:space-between;
+    gap: $spacing-2xl;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: $spacing-4xl;
+    }
+  }
+
+  &__content {
+    max-width: 600px;
+  }
+
+  &__subheading {
+    font-family: $font-body;
+    font-size:1rem;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: $color-green-tagline;
+    margin: 0 0 $spacing-md;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:32px;
+
+    &:before {
+      content:'';
+      width:72px;
+      height:1px;
+      background:$color-green-tagline;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(3.6rem, 3vw, 2.25rem);
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    font-weight:400;
+  }
+
+  &__text {
+    color: rgba($color-white, 0.9);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  a {
+      border:1px solid $color-green-tagline;
+      border-radius:15px 30px 15px 30px;
+      padding:10px 20px;
+      color:$color-green-tagline;
+      font-weight:400;
+      font-size:18px;
+      text-transform:uppercase;
+      background:transparent;
+      margin-top:$spacing-xl;
+    } 
+}
+
+.howItWorksOuter {
+  background: $color-green-primary;
+  max-width: 600px;
+  padding: $spacing-3xl $spacing-2xl;
+  border-radius:15px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-xl;
+
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background-color: $color-white;
+    color: $color-green-primary;
+    @include flex-center;
+    font-size: 1.25rem;
+    font-weight:500;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: $color-white;
+    margin: 0 0 $spacing-xs;
+    font-family:$font-body;
+    text-transform:uppercase;
+  }
+
+  &__desc {
+    color: rgba($color-white, 0.85);
+    margin: 0;
+    font-size:1.1rem;
+    line-height: 1.6;
+    font-family:$font-body;
+    font-weight:400;
+  }
+}
+
+/* ================= MOBILE RESPONSIVE ONLY ================= */
+
+@media (max-width: 1200px) {
+
+  .section__grid {
+    gap: 40px;
+  }
+
+  .section__heading {
+    font-size: 2.8rem;
+  }
+
+  .howItWorksOuter {
+    padding: 40px 30px;
+  }
+
+  .howItWorksOuter__title {
+    font-size: 1.1rem;
+  }
+
+  .howItWorksOuter__desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  .section {
+    padding: 60px 16px;
+  }
+
+  .section__grid {
+    flex-direction: column;
+  }
+
+  .section__subheading {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    gap: 16px;
+
+    &:before {
+      width: 40px;
+    }
+  }
+
+  .section__heading {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .section__text {
+    font-size: 15px;
+  }
+
+  .section a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .howItWorksOuter {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .howItWorksOuter__item {
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .howItWorksOuter__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .howItWorksOuter__title {
+    font-size: 1rem;
+  }
+
+  .howItWorksOuter__desc {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .section__heading {
+    font-size: 1.7rem;
+  }
+
+  .howItWorksOuter {
+    padding: 24px 16px;
+  }
+
+  .howItWorksOuter__icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+
+  .howItWorksOuter__title {
+    font-size: 0.9rem;
+  }
+
+  .howItWorksOuter__desc {
+    font-size: 0.9rem;
+  }
+
+  .section a {
+    width: 100%;
+    text-align: center;
+  }
+}

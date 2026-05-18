@@ -1,0 +1,164 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.gallerySection {
+  background: #163C32;
+  padding: 120px 20px;
+
+  &__container {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  &__heading {
+    text-align: center;
+    margin-bottom: 70px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    span {
+      font-family: $font-body;
+        font-size:1rem;
+        font-weight: 500;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        color: $color-green-tagline;
+        margin: 0 0 $spacing-md;
+        position:relative;
+        display:flex;
+        align-items:center;
+        gap:32px;
+
+      &::before {
+        content: '';
+        width: 55px;
+        height: 2px;
+        background: #72ff00;
+      }
+    }
+
+    h2 {
+      font-size: clamp(3.6rem, 3vw, 2.25rem);
+        color: $color-white;
+        margin-bottom: $spacing-md;
+        font-weight:400;
+    }
+  }
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    min-height: 280px;
+
+    &:hover img {
+      transform: scale(1.08);
+    }
+
+    &:nth-child(1) {
+      grid-column: span 7;
+      min-height: 360px;
+    }
+
+    &:nth-child(2) {
+      grid-column: span 5;
+      min-height: 360px;
+    }
+
+    &:nth-child(3) {
+      grid-column: span 4;
+    }
+
+    &:nth-child(4) {
+      grid-column: span 5;
+    }
+
+    &:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    &:nth-child(6) {
+      grid-column: span 8;
+    }
+
+    &:nth-child(7) {
+      grid-column: span 4;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    transition: 0.4s ease;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+  .gallerySection {
+
+    &__heading {
+
+      h2 {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .galleryGrid {
+
+    &__item {
+
+      &:nth-child(n) {
+        grid-column: span 6;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .gallerySection {
+    padding: 80px 16px;
+
+    &__heading {
+
+      h2 {
+        font-size: 34px;
+      }
+
+      span {
+        font-size: 12px;
+        letter-spacing: 3px;
+
+        &::before {
+          width: 40px;
+        }
+      }
+    }
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+
+    &__item {
+
+      &:nth-child(n) {
+        grid-column: auto;
+        min-height: 260px;
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.bannerWrapper {
+  position: relative;
+}
+
+.bannerImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.tall {
+  height: 400px;
+
+  @media (min-width: 768px) {
+    height: 600px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 800px;
+  }
+}
+
+.short {
+  height: 200px;
+
+  @media (min-width: 768px) {
+    height: 300px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 500px;
+  }
+}
+
+.overlayImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlayImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.darkOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(67, 118, 0, 1), transparent);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 20;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  color: #fff;
+  max-width: 1200px;
+}
+
+.title {
+  font-size:4rem;
+  font-weight:400;
+  letter-spacing: -0.025em;
+  margin:0;
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3.75rem;
+  }
+}
+
+.description {
+  margin-top: 1.5rem;
+  font-size:1.5rem;
+  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    width: 75%;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.125rem;
+    width: 50%;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  color: white;
+  background: #2563eb;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 640px) {
+    padding: 0.75rem 1.5rem;
+  }
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+/* ===== RESPONSIVE FIX ===== */
+
+@media (max-width: 768px) {
+
+  /* Let banner scale naturally */
+  .tall {
+    height: 65vh;
+    min-height: 420px;
+  }
+
+  .short {
+    height: 40vh;
+    min-height: 260px;
+  }
+
+  /* Improve content spacing */
+  .content {
+    padding: 0 20px;
+    top: 55%;
+  }
+
+  /* Fix title scaling */
+  .title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  /* Fix description readability */
+  .description {
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Stack buttons nicely */
+  .buttonWrapper {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 220px;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+}
