@@ -81,7 +81,7 @@ export const TestimonialsSection: React.FC = () => {
 
           <div className={styles.textBlock}>
             <p>
-              “Transparent process and excellent service. We can actually see what's being grown.”
+              “Transparent process and excellent service. We can actually see what&apos;s being grown.”
             </p>
             <h4>Amit Verma</h4>
             <span>Product Designer at Martina.co</span>
