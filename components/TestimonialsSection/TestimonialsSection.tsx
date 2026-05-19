@@ -36,7 +36,7 @@ export const TestimonialsSection: React.FC = () => {
             poster="/images/testimonialBg.webp"
             preload="metadata"
           >
-            <source src="/videos/testimonialvideo.mp4" type="video/mp4" />
+            <source src="/images/testimonialvideo.mp4" type="video/mp4" />
           </video>
 
           <div className={styles.videoOverlay}>
@@ -94,7 +94,7 @@ export const TestimonialsSection: React.FC = () => {
 
           <div className={styles.videoCard}>
             <video
-              src="/images/client1.mp4"
+              src="/images/video1.mp4"
               poster="/images/videobg1.webp"
               controls
             />
@@ -106,7 +106,7 @@ export const TestimonialsSection: React.FC = () => {
 
           <div className={styles.videoCard}>
             <video
-              src="/images/client2.mp4"
+              src="/images/video2.mp4"
               poster="/images/videobg2.webp"
               controls
             />
@@ -118,7 +118,7 @@ export const TestimonialsSection: React.FC = () => {
 
           <div className={styles.videoCard}>
             <video
-              src="/images/client3.mp4"
+              src="/images/video3.mp4"
               poster="/images/videobg3.webp"
               controls
             />
