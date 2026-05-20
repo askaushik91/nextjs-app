@@ -109,7 +109,7 @@
   &__subtitle {
     font-size: 1rem;
     opacity: 0.85;
-    margin-bottom: $spacing-lg *3;
+    margin-bottom: $spacing-xl;
   }
 
   // RIGHT IMAGE SIDE
@@ -127,11 +127,100 @@
   }
 }
 
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: $spacing-xl;
+
+  &__tab {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.68);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px 22px;
+    position: relative;
+
+    span:last-child {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 0;
+      height: 2px;
+      background: $color-green-tagline;
+      transition: width $transition-duration $transition-ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-green-tagline;
+      outline-offset: 6px;
+    }
+  }
+
+  &__icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  .active {
+    color: $color-white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.formPanels {
+  display: grid;
+  gap: $spacing-xl;
+}
+
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $spacing-md;
+
+  &__title {
+    color: $color-green-tagline;
+    font-family: $font-body;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0 0 $spacing-xs;
+    text-transform: uppercase;
+  }
 
   // 👇 First + Last Name Row
   &__row {
@@ -165,8 +254,12 @@
     color: $color-text-on-light;
   }
 
+  select.form__input {
+    cursor: default;
+  }
+
   &__textarea {
-    min-height: 140px;
+    min-height: 120px;
     resize: none;
   }
 
@@ -217,10 +310,10 @@
 
   // 👇 CTA Button
   &__submit {
-    margin-top: $spacing-lg;
+    margin-top: $spacing-sm;
     padding:12px;
     border-radius:30px 15px 30px 15px;
-    cursor: pointer;
+    cursor: default;
     background: $color-off-white;
     color: $color-dark-green;
     font-weight:400;
@@ -229,7 +322,7 @@
     transition: $transition-duration $transition-ease;
 
     &:hover {
-      background: $color-white;
+      background: $color-off-white;
     }
   }
 }
@@ -284,7 +377,24 @@
   }
 
   .section__subtitle {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+  }
+
+  .tabs {
+    margin-bottom: 28px;
+
+    &__tab {
+      padding: 0 8px 18px;
+
+      span:last-child {
+        font-size: 14px;
+      }
+    }
+
+    &__icon {
+      width: 46px;
+      height: 46px;
+    }
   }
 }
 
@@ -320,5 +430,15 @@
 
   .form__checkbox {
     font-size: 13px;
+  }
+
+  .tabs {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    border-bottom: none;
+
+    &__tab {
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
   }
 }

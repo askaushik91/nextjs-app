@@ -62,7 +62,7 @@ export function Header() {
           </nav>
 
           <div className={styles.header__cta}>
-              <Button href={CONTACT_HREF} label="Contact Us" variant="outline" light />
+              <Button href={CONTACT_HREF} label="Book Your Slot" variant="outline" light />
           </div>
 
           <button

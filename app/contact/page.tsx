@@ -4,7 +4,7 @@ import { Container } from '@/components/Container/Container';
 import BannerSection from '../../components/BannerSection/BannerSection';
 import { CONTACT_INFO } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
-import { Button } from '@/components/Button/Button';
+import ContactFormsTabs from './ContactFormsTabs';
 import styles from './contact.module.scss';
 
 export const metadata: Metadata = {
@@ -83,96 +83,7 @@ export default function ContactPage() {
                   Our friendly team would love to hear from you.
                 </p>
 
-              <form className={styles.form} action="#" method="post">
-                <div className={styles.form__row}>
-                  <div className={styles.form__group}>
-                    <label className={styles.form__label} htmlFor="first-name">
-                      First name
-                    </label>
-                    <input
-                      id="first-name"
-                      type="text"
-                      name="firstName"
-                      className={styles.form__input}
-                      placeholder="First name"
-                      required
-                    />
-                  </div>
-
-                  <div className={styles.form__group}>
-                    <label className={styles.form__label} htmlFor="last-name">
-                      Last name
-                    </label>
-                    <input
-                      id="last-name"
-                      type="text"
-                      name="lastName"
-                      className={styles.form__input}
-                      placeholder="Last name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className={styles.form__group}>
-                  <label className={styles.form__label} htmlFor="contact-email">
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    name="email"
-                    className={styles.form__input}
-                    placeholder="you@company.com"
-                    required
-                  />
-                </div>
-
-                <div className={styles.form__group}>
-                  <label className={styles.form__label} htmlFor="contact-phone">
-                    Phone number
-                  </label>
-
-                  <div className={styles.form__phone}>
-                    <select className={styles.form__country}>
-                      <option>US</option>
-                      <option>IN</option>
-                    </select>
-
-                    <input
-                      id="contact-phone"
-                      type="tel"
-                      name="phone"
-                      className={styles.form__phoneInput}
-                      placeholder="+1 (555) 000-0000"
-                    />
-                  </div>
-                </div>
-
-                <div className={styles.form__group}>
-                  <label className={styles.form__label} htmlFor="contact-message">
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    className={styles.form__textarea}
-                    placeholder=""
-                  />
-                </div>
-
-                <div className={styles.form__checkbox}>
-                  <input type="checkbox" id="privacy" />
-                  <label htmlFor="privacy">
-                    You agree to our <a href="#">privacy policy</a>.
-                  </label>
-                </div>
-
-                <button type="submit" className={styles.form__submit}>
-                  Reserve Your Farm Plot Today
-                </button>
-
-              </form>
+              <ContactFormsTabs />
             </div>
 
             <div className={styles.section__imageWrap}>
