@@ -91,7 +91,7 @@ export default function ContactPage() {
                 src={IMAGES.contact}
                 alt="Gill Organics produce bag"
                 width={500}
-                height={600}
+                height={700}
                 className={styles.section__image}
               />
             </div>
