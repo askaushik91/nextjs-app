@@ -61,9 +61,8 @@ export function Footer() {
           <h3 className={styles.footer__columnTitle}>Social Media</h3>
 
           <ul className={styles.footer__links}>
-            <li><Link href="#">Facebook</Link></li>
-            <li><Link href="#">Twitter</Link></li>
-            <li><Link href="#">LinkedIn</Link></li>
+            <li><Link href="https://www.facebook.com/gillorganics/" target="_blank">Facebook</Link></li>
+            <li><Link href="https://www.instagram.com/gillorganics/" target="_blank">Twitter</Link></li>
           </ul>
         </div>
 
