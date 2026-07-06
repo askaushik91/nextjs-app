@@ -3,7 +3,7 @@ import { AboutSection } from '@/components/AboutSection/AboutSection';
 import { ServicesSection } from '@/components/ServicesSection/ServicesSection';
 import { WhyUsSection } from '@/components/WhyUsSection/WhyUsSection';
 import { FeaturesSection } from '@/components/FeaturesSection/FeaturesSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection/TestimonialsSection';
+// import { TestimonialsSection } from '@/components/TestimonialsSection/TestimonialsSection';
 import { FAQSection } from '@/components/FAQSection/FAQSection';
 import ImageGallerySection from '@/components/ImageGallerySection';
 import CloudFarmProgram from '@/components/CloudFarmProgram';

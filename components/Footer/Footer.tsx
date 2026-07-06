@@ -51,7 +51,7 @@ export function Footer() {
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/services">Services</Link></li>
             <li><Link href="/how-it-works">How It Works</Link></li>
-            <li><Link href="/testimonials">Testimonials</Link></li>
+            {/* <li><Link href="/testimonials">Testimonials</Link></li> */}
             <li><Link href="/contact">Contact Us</Link></li>
           </ul>
         </div>
