@@ -137,7 +137,7 @@ export function FeaturesSection() {
                 src={IMAGES.howworksvideo}
                 alt="Farm Video Banner"
                 width={1200}
-                height={700}
+                height={400}
                 className={styles.videoSection__image}
               />
 

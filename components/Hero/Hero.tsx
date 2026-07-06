@@ -35,16 +35,15 @@ export function Hero() {
           </div>
         </div>
 
-        <p className={styles.hero__tagline}>Pure. Seasonal. Naturally Yours.</p>
-        <h1 className={styles.hero__headline}>From Your Soil to Your Kitchen.</h1>
+        <p className={styles.hero__tagline}>Pure. Fresh. Seasonal.</p>
+        <h1 className={styles.hero__headline}>From your farm to your kitchen.</h1>
         <p className={styles.hero__subtext}>
-          Lease your own organic farmland and receive fresh seasonal vegetables
-          delivered straight to your door. No chemicals. No compromise.
+          Adopt you organic cloud-farm, we maintain it on your behalf, you pluck your own veggies anytime, or get weekly produce home-delivered. No chemicals, no compromise- pure organic farm experience.
         </p>
         <div className={styles.hero__cta}>
           <Button
             href="/contact"
-            label="Reserve Your Plot & Talk to Our Farming Experts"
+            label="Join Waitlist"
             variant="primary"
           />
         </div>

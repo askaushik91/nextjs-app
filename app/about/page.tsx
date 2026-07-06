@@ -5,6 +5,7 @@ import BannerSection from '../../components/BannerSection/BannerSection';
 import styles from './about.module.scss';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
+import { TeamSection } from '@/components/TeamSection/TeamSection';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -124,6 +125,8 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+
+      <TeamSection variant="full" />
 
       <div className={styles.ctaBar}>
         <div className={styles.ctaBar__container}>

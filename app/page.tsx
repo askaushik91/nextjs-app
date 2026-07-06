@@ -7,6 +7,8 @@ import { TestimonialsSection } from '@/components/TestimonialsSection/Testimonia
 import { FAQSection } from '@/components/FAQSection/FAQSection';
 import ImageGallerySection from '@/components/ImageGallerySection';
 import CloudFarmProgram from '@/components/CloudFarmProgram';
+import { TeamSection } from '@/components/TeamSection/TeamSection';
+import { MapSection } from '@/components/MapSection/MapSection';
 
 
 export default function HomePage() {
@@ -17,10 +19,12 @@ export default function HomePage() {
       <ServicesSection />
       <WhyUsSection />
       <FeaturesSection />
+      <TeamSection />
       <ImageGallerySection />
       <CloudFarmProgram />
       <TestimonialsSection />
       <FAQSection />
+      <MapSection />
     </>
   );
 }

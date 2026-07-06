@@ -5,6 +5,7 @@ import BannerSection from '../../components/BannerSection/BannerSection';
 import { CONTACT_INFO } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
 import ContactFormsTabs from './ContactFormsTabs';
+import { MapSection } from '@/components/MapSection/MapSection';
 import styles from './contact.module.scss';
 
 export const metadata: Metadata = {
@@ -103,6 +104,7 @@ export default function ContactPage() {
       </div>
 
     </section>
+    <MapSection />
     </div>
   );
 }

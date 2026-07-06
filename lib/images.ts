@@ -8,6 +8,8 @@ const PLACEHOLDER_BASE = '/images';
 export const IMAGES = {
   logo:`${PLACEHOLDER_BASE}/GillOrganicsLogo.png`,
   hero: `${PLACEHOLDER_BASE}/HeroImage.webp`,
+  mantaj: `${PLACEHOLDER_BASE}/mantaj.webp`,
+  baljeet: `${PLACEHOLDER_BASE}/baljeet.webp`,
   about: `${PLACEHOLDER_BASE}/aboutImage.webp`,
   aboutinner: `${PLACEHOLDER_BASE}/innerAbout.webp`,
   aboutcore: `${PLACEHOLDER_BASE}/aboutCore.webp`,
@@ -19,4 +21,6 @@ export const IMAGES = {
   testimonials: `${PLACEHOLDER_BASE}/testimonialBg.webp`,
   faqquest: `${PLACEHOLDER_BASE}/faqQuestions.png`,
   contact: `${PLACEHOLDER_BASE}/contactus.webp`,
+  teamMantaj: `${PLACEHOLDER_BASE}/mantaj_sidhu.png`,
+  teamBaljeet: `${PLACEHOLDER_BASE}/baljeet_gill.png`,
 } as const;

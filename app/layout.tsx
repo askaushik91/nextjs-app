@@ -3,6 +3,7 @@ import { Poppins, Abril_Fatface } from 'next/font/google';
 import '@/styles/globals.scss';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
+import { DevConsoleFilter } from '@/components/DevConsoleFilter/DevConsoleFilter';
 import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/constants';
 
 /**
@@ -50,6 +51,7 @@ export default function RootLayout({
       className={`${poppins.variable} ${abril.variable}`}
     >
       <body>
+        <DevConsoleFilter />
         <Header />
         <main>{children}</main>
         <Footer />

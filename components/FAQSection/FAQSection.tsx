@@ -9,34 +9,34 @@ import styles from './FAQSection.module.scss';
 
 const FAQ_ITEMS = [
   {
-    question: 'Are the vegetables completely organic?',
+    question: 'How much yield will my allotted farm grow?',
     answer:
-      'Yes. We follow natural farming practices and avoid harmful chemicals and synthetic pesticides. You can select seasonal vegetables based on availability and farming suitability.',
+      "The amount of yield from a 150 sq. yd. land is enough to cover 60-70% weekly vegetable requirement for a family of 4-5 members. Please note that we grow seasonal vegetables only as per nature's timing, so for anything non-seasonal you will have to rely on the regular market.",
   },
   {
-    question: 'Can I choose which vegetables to grow?',
+    question: 'How far is the farm located from Patiala city?',
     answer:
-      'You choose a plot size (Basic, Premium, or Family), and we assign you a section of our farmland. Our team prepares the soil, plants seasonal varieties, tends the crops, and harvests when ready. You receive the produce on a delivery schedule that works for you.',
+      "The Farm is located in a lush green and serene village at the outskirts of Patiala, a 20-minute drive from the 22 No. market, Patiala.",
   },
   {
-    question: 'How often will I receive delivery?',
+    question: 'Can I join in the middle of the season if I could not join at the start of it?',
     answer:
-      'Your box includes seasonal vegetables grown on your plot—whatever is ripe that week. Typical crops include tomatoes, leafy greens, root vegetables, and more, depending on the season and your region.',
+      "Yes you can join in the middle of a season as well, provided we have slots available, you will just have to wait couple of days for the first yield of your crops.",
   },
   {
-    question: 'Do I need to manage the farm?',
+    question: 'What are the durations of the seasons under your program?',
     answer:
-      'Delivery frequency depends on your subscription tier. Most families receive a weekly or bi-weekly box during the growing season. We’ll confirm your schedule when you sign up.',
+      "The summer season is from April to October; the winter season is from October to April. You will get yield from your allotted land all round the year except for a few days during the start of each season as crops are rotated.",
   },
   {
-    question: 'Is there a minimum lease duration?',
+    question: 'Which cities do you deliver in?',
     answer:
-      'Delivery frequency depends on your subscription tier. Most families receive a weekly or bi-weekly box during the growing season. We’ll confirm your schedule when you sign up.',
+      "Currently we are serving to Patiala, Chandigarh and Ludhiana locations only, we plan to expand our services to more locations in the near future.",
   },
   {
-    question: 'Are the vegetables completely organic?',
+    question: 'Do you also grow organic wheat/rice/millets?',
     answer:
-      'Delivery frequency depends on your subscription tier. Most families receive a weekly or bi-weekly box during the growing season. We’ll confirm your schedule when you sign up.',
+      "Yes, we will grow organic grains and shakkar separately as per the season which will be available for order only to our customers.",
   },
 ];
 

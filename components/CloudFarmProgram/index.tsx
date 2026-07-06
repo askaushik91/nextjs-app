@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
+import { VegetableIcons } from './VegetableIcons';
 import styles from './style.module.scss';
 
 const tabs = [
@@ -38,9 +39,51 @@ const tabs = [
   },
 ];
 
+const summerVegetables = [
+  { id: 'zucchini', name: 'Zucchini', localName: 'Zucchini' },
+  { id: 'tomato', name: 'Tomato', localName: 'Tamattar' },
+  { id: 'bhindi', name: 'Okra', localName: 'Bhindi' },
+  { id: 'ghiya', name: 'Bottle Gourd', localName: 'Ghiya' },
+  { id: 'chappan_kaddu', name: 'Squash', localName: 'Chappan kaddu' },
+  { id: 'kheera', name: 'Cucumber', localName: 'Kheera' },
+  { id: 'lobia', name: 'Cowpea', localName: 'Lobia' },
+  { id: 'kakkri', name: 'Armenian Cucumber', localName: 'Kakkri' },
+  { id: 'pyaaz', name: 'Onion', localName: 'Pyaaz' },
+  { id: 'tinda', name: 'Apple Gourd', localName: 'Tinda' },
+  { id: 'torri', name: 'Ridge Gourd', localName: 'Torri' },
+  { id: 'krela', name: 'Bitter Gourd', localName: 'Krela' },
+  { id: 'petha', name: 'Ash Gourd', localName: 'Petha' },
+  { id: 'lassan', name: 'Garlic', localName: 'Lassan' },
+  { id: 'arbi', name: 'Taro Root', localName: 'Arbi' },
+  { id: 'malabar_spinach', name: 'Malabar Spinach', localName: 'Malabar Spinach' },
+];
+
+const winterVegetables = [
+  { id: 'mooli', name: 'Radish', localName: 'Mooli' },
+  { id: 'shalgam', name: 'Turnip', localName: 'Shalgam' },
+  { id: 'chukandar', name: 'Beetroot', localName: 'Chukandar' },
+  { id: 'gaajar', name: 'Carrot', localName: 'Gaajar' },
+  { id: 'paalak', name: 'Spinach', localName: 'Paalak' },
+  { id: 'methe', name: 'Fenugreek Bunch', localName: 'Methe' },
+  { id: 'methi', name: 'Fenugreek Leaves', localName: 'Methi' },
+  { id: 'dhaniya', name: 'Coriander', localName: 'Dhaniya' },
+  { id: 'saron', name: 'Mustard Greens', localName: "Saro'n" },
+  { id: 'phull_gobi', name: 'Cauliflower', localName: 'Phull Gobi' },
+  { id: 'band_gobi', name: 'Cabbage', localName: 'Band Gobi' },
+  { id: 'broccoli', name: 'Broccoli', localName: 'Broccoli' },
+  { id: 'lettuce', name: 'Lettuce', localName: 'Lettuce' },
+  { id: 'hrra_pyaaz', name: 'Spring Onion', localName: 'Hrra Pyaaz' },
+  { id: 'hrra_lassan', name: 'Green Garlic', localName: 'Hrra Lassan' },
+  { id: 'baingan', name: 'Eggplant', localName: 'Baingan' },
+  { id: 'tomato', name: 'Tomato', localName: 'Tamattar' },
+  { id: 'mattar', name: 'Green Peas', localName: 'Mattar' },
+  { id: 'rocket_leaves', name: 'Mixed Greens', localName: 'Rocket Leaves / Garden Cress / Dill' },
+];
+
 export default function CloudFarmProgram() {
 
   const [activeTab, setActiveTab] = useState('program');
+  const [vegetableSeason, setVegetableSeason] = useState<'summer' | 'winter'>('summer');
 
   return (
     <section className={styles.cloudFarm}>
@@ -94,14 +137,13 @@ export default function CloudFarmProgram() {
                 <h3>PROGRAM DETAILS</h3>
 
                 <ul>
-                    <li>On joining the program, you will be allotted a dedicated piece of farm land of ~150 sq. yd. for the season. A season lasts 6 months.</li>
-                    <li>You choose the vegetables you wish to grow from the list of vegetables given below and our organic-expert farmer will sow and maintain your vegetables on your mini-farm using organic methods.</li>
-                    <li>Whatever your mini-farm produces in a week, it&apos;ll be harvested over the weekend and home delivered within 24 hours of harvesting and with no extra charge. One mini-farm gives enough weekly produce for the vegetables requirements of a family of 4.</li>
-                    <li>You can also come to the Farm anytime you want for plucking and our helper will help you pluck the best veggies.</li>
+                    <li>On joining the program, you will be allotted a dedicated piece of farm land of ~150 sq. yd. for the season - Winter/Summer. A season lasts 6 months.</li>
+                    <li>We share a list of ~20 items that can grow on your farm in that season and you choose which items you want on your farm - you may choose all.</li>
+                    <li>Our team of expert farmers will sow and maintain your farm using 100% organic methods. Zero compromise on quality and authenticity.</li>
+                    <li>Whatever your mini-farm produces in a week, it&apos;ll be harvested over the weekend and home delivered within 24 hours of harvesting and with no extra charge. One mini-farm gives enough weekly produce for the veggie/salad requirements of a family of 4-5 members.</li>
+                    <li>You can also come to the farm anytime you want for plucking and our helper will help you pluck the best veggies.</li>
                     <li>You can also access our Farmhouse for a quality time with your family (subject to availability). The Farmhouse has a traditional Punjab feel to it with exhibits like charkha, madhaani, bonfire, library etc. and all other basic amenities.</li>
-                    <li>You can also pluck and enjoy our fresh organic fruit collection in the Farmhouse during your family visits.</li>
-                    <li>For all the fish-lovers out there, you can also have a fishing experience at our water pond, where you can catch live fish and cook/take it home.</li>
-                    <li>You will constantly be in touch with our team via Whatsapp for any request or query or a status update on your farm.</li>
+                    <li>You will constantly be in touch with our team via our App and Whatsapp for any request or query or a status update on your farm.</li>
                 </ul>
 
                 <Button href="/" label="Join a waitlist NOW" variant="primary" />
@@ -113,19 +155,44 @@ export default function CloudFarmProgram() {
           {activeTab === 'vegetables' && (
             <div className={styles.cloudFarm__vegetables}>
                 <div className={styles.cloudFarm__info}>
-                    <h3>Vegetables Included</h3>
+                    <div className={styles.cloudFarm__vegHeader}>
+                        <h3>Vegetables Included</h3>
+                        
+                        <div className={styles.cloudFarm__seasonToggle}>
+                            <button
+                                className={`${styles.cloudFarm__seasonBtn} ${
+                                    vegetableSeason === 'summer' ? styles.activeSeason : ''
+                                }`}
+                                onClick={() => setVegetableSeason('summer')}
+                            >
+                                Summer Season
+                            </button>
+                            <button
+                                className={`${styles.cloudFarm__seasonBtn} ${
+                                    vegetableSeason === 'winter' ? styles.activeSeason : ''
+                                }`}
+                                onClick={() => setVegetableSeason('winter')}
+                            >
+                                Winter Season
+                            </button>
+                        </div>
+                    </div>
 
                     <div className={styles.cloudFarm__vegGrid}>
-                        <span>Tomato</span>
-                        <span>Potato</span>
-                        <span>Spinach</span>
-                        <span>Onion</span>
-                        <span>Carrot</span>
-                        <span>Cauliflower</span>
-                        <span>Capsicum</span>
-                        <span>Radish</span>
-                        <span>Brinjal</span>
-                        <span>Lady Finger</span>
+                        {(vegetableSeason === 'summer' ? summerVegetables : winterVegetables).map((veg, index) => {
+                            const IconComponent = VegetableIcons[veg.id] || VegetableIcons.tomato;
+                            return (
+                                <div key={`${veg.id}-${index}`} className={styles.cloudFarm__vegCard}>
+                                    <div className={styles.cloudFarm__vegIconWrapper}>
+                                        <IconComponent size="32" />
+                                    </div>
+                                    <div className={styles.cloudFarm__vegNames}>
+                                        <span className={styles.cloudFarm__vegName}>{veg.name}</span>
+                                        <span className={styles.cloudFarm__vegLocalName}>{veg.localName}</span>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 
