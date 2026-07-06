@@ -17,12 +17,15 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Testimonials', href: '/testimonials' },
 ];
 
 export const CONTACT_HREF = '/contact';
 
-export const FOOTER_QUICK_LINKS = [...NAV_LINKS, { label: 'Contact Us', href: CONTACT_HREF }];
+export const FOOTER_QUICK_LINKS = [
+  ...NAV_LINKS,
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact Us', href: CONTACT_HREF }
+];
 
 export const CONTACT_INFO = {
   address: '123 Farm Road, Green Valley, Countryside',
