@@ -22,7 +22,7 @@ export default function HomePage() {
       <TeamSection />
       <ImageGallerySection />
       <CloudFarmProgram />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FAQSection />
       <MapSection />
     </>
