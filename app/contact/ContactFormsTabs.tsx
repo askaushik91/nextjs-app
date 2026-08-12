@@ -35,6 +35,26 @@ const tabs = [
 
 export default function ContactFormsTabs() {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]['id']>('business');
+  const [submissionState, setSubmissionState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmissionState('sending');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/contact', { method: 'POST', body: new FormData(event.currentTarget) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to send your enquiry.');
+      event.currentTarget.reset();
+      setSubmissionState('success');
+      setMessage('Thank you — your details have been sent successfully.');
+    } catch (error) {
+      setSubmissionState('error');
+      setMessage(error instanceof Error ? error.message : 'Unable to send your enquiry.');
+    }
+  };
 
   return (
     <>
@@ -57,7 +77,9 @@ export default function ContactFormsTabs() {
 
       <div className={styles.formPanels}>
         {activeTab === 'business' && (
-          <form id="business-form-panel" role="tabpanel" className={styles.form} method="post">
+          <form id="business-form-panel" role="tabpanel" className={styles.form} onSubmit={handleSubmit}>
+            <input type="hidden" name="formType" value="business" />
+            <input className={styles.form__honeypot} type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
             <h3 className={styles.form__title}>Business With Us</h3>
 
             <div className={styles.form__row}>
@@ -71,6 +93,7 @@ export default function ContactFormsTabs() {
                   name="businessName"
                   className={styles.form__input}
                   placeholder="Your name"
+                  required
                 />
               </div>
 
@@ -97,7 +120,8 @@ export default function ContactFormsTabs() {
                 type="email"
                 name="email"
                 className={styles.form__input}
-                placeholder="you@company.com"
+                  placeholder="you@company.com"
+                  required
               />
             </div>
 
@@ -150,14 +174,17 @@ export default function ContactFormsTabs() {
               />
             </div>
 
-            <button type="button" className={styles.form__submit}>
-              Send Business Enquiry
+            <button type="submit" className={styles.form__submit} disabled={submissionState === 'sending'}>
+              {submissionState === 'sending' ? 'Sending…' : 'Send Business Enquiry'}
             </button>
+            {message && <p className={`${styles.form__feedback} ${styles[`form__feedback--${submissionState}`]}`} role="status">{message}</p>}
           </form>
         )}
 
         {activeTab === 'slot' && (
-          <form id="slot-form-panel" role="tabpanel" className={styles.form} method="post">
+          <form id="slot-form-panel" role="tabpanel" className={styles.form} onSubmit={handleSubmit}>
+            <input type="hidden" name="formType" value="slot" />
+            <input className={styles.form__honeypot} type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
             <h3 className={styles.form__title}>Book Your Slot</h3>
 
             <div className={styles.form__row}>
@@ -171,6 +198,7 @@ export default function ContactFormsTabs() {
                   name="slotName"
                   className={styles.form__input}
                   placeholder="Your name"
+                  required
                 />
               </div>
 
@@ -197,7 +225,8 @@ export default function ContactFormsTabs() {
                 type="email"
                 name="email"
                 className={styles.form__input}
-                placeholder="you@company.com"
+                  placeholder="you@company.com"
+                  required
               />
             </div>
 
@@ -260,9 +289,10 @@ export default function ContactFormsTabs() {
               />
             </div>
 
-            <button type="button" className={styles.form__submit}>
-              Book Your Slot
+            <button type="submit" className={styles.form__submit} disabled={submissionState === 'sending'}>
+              {submissionState === 'sending' ? 'Sending…' : 'Book Your Slot'}
             </button>
+            {message && <p className={`${styles.form__feedback} ${styles[`form__feedback--${submissionState}`]}`} role="status">{message}</p>}
           </form>
         )}
       </div>
