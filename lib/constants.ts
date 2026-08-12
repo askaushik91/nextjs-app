@@ -20,6 +20,8 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CONTACT_HREF = '/contact';
+export const WAITLIST_HREF =
+  'https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform';
 
 export const FOOTER_QUICK_LINKS = [
   ...NAV_LINKS,

@@ -14,6 +14,7 @@ interface ButtonProps {
   className?: string;
   /** For outline buttons on dark backgrounds (e.g. header) */
   light?: boolean;
+  target?: '_blank';
 }
 
 /**
@@ -27,6 +28,7 @@ export function Button({
   type = 'button',
   className = '',
   light = false,
+  target,
 }: ButtonProps) {
   const classNames = [
     styles.button,
@@ -39,7 +41,13 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classNames} aria-label={label}>
+      <Link
+        href={href}
+        className={classNames}
+        aria-label={label}
+        target={target}
+        rel={target === '_blank' ? 'noreferrer' : undefined}
+      >
         <span className={styles.button__label}>{label}</span>
         <span className={styles.button__arrow} aria-hidden>
           →

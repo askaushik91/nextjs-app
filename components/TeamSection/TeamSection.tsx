@@ -11,27 +11,57 @@ const TEAM_MEMBERS = [
   {
     name: 'Mantaj Sidhu',
     role: 'Ex-Google, MBA',
-    focus: 'Operations and customer satisfaction',
     image: IMAGES.mantaj,
     imageAlt: 'Mantaj Sidhu from Gill Organics at the farm',
-    imagePosition: 'center 38%',
+    imagePosition: 'top 38%',
     description:
       'Handles operations and customer satisfaction, and creates documentaries and music videos in his free time.',
   },
   {
     name: 'Dr. Baljeet Gill',
     role: 'PhD, Agriculturalist',
-    focus: 'Production and organic farming expertise',
     image: IMAGES.baljeet,
     imageAlt: 'Dr. Baljeet Gill from Gill Organics at the farm',
-    imagePosition: 'center 58%',
+    imagePosition: 'top 58%',
     description:
       'Handles production and organic farming expertise, and likes to read Punjabi literature in his free time.',
   },
 ];
 
+const ABOUT_TEAM_MEMBERS = [
+  ...TEAM_MEMBERS,
+  {
+    name: 'Harjit Singh',
+    role: 'Farm Operations',
+    image: IMAGES.teamHarjit,
+    imageAlt: 'Harjit Singh from Gill Organics',
+    imagePosition: 'center',
+    description:
+      'Supports the day-to-day care of our fields and helps every harvest reach families at its freshest.',
+  },
+  {
+    name: 'Gurpreet Kaur',
+    role: 'Community Coordinator',
+    image: IMAGES.teamGurpreet,
+    imageAlt: 'Gurpreet Kaur from Gill Organics',
+    imagePosition: 'center',
+    description:
+      'Works with members and our farm team to keep every visit, update and delivery running smoothly.',
+  },
+  {
+    name: 'Jagdeep Singh',
+    role: 'Cultivation Specialist',
+    image: IMAGES.teamJagdeep,
+    imageAlt: 'Jagdeep Singh from Gill Organics',
+    imagePosition: 'center',
+    description:
+      'Brings practical field knowledge to seasonal planning and the natural cultivation of each plot.',
+  },
+];
+
 export function TeamSection({ variant = 'preview' }: TeamSectionProps) {
   const isFull = variant === 'full';
+  const members = isFull ? ABOUT_TEAM_MEMBERS : TEAM_MEMBERS;
 
   return (
     <section
@@ -56,7 +86,7 @@ export function TeamSection({ variant = 'preview' }: TeamSectionProps) {
           </p>
 
           <div className={styles.team__grid}>
-            {TEAM_MEMBERS.map((member, index) => (
+            {members.map((member, index) => (
               <article key={member.name} className={styles.member}>
                 <div className={styles.member__photo}>
                   <Image
@@ -72,7 +102,6 @@ export function TeamSection({ variant = 'preview' }: TeamSectionProps) {
                   </span>
                 </div>
                 <div>
-                  <p className={styles.member__eyebrow}>{member.focus}</p>
                   <h3>{member.name}</h3>
                   <p className={styles.member__role}>{member.role}</p>
                   <p>{member.description}</p>

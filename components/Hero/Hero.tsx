@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/Button/Button';
 import { IMAGES } from '@/lib/images';
+import { WAITLIST_HREF } from '@/lib/constants';
 import styles from './Hero.module.scss';
 
 export function Hero() {
@@ -58,9 +59,10 @@ export function Hero() {
         </p>
         <div className={styles.hero__cta}>
           <Button
-            href="/contact"
-            label="Join Waitlist"
+            href={WAITLIST_HREF}
+            label="Join Wait List"
             variant="primary"
+            target="_blank"
           />
         </div>
       </div>

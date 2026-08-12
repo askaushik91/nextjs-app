@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NAV_LINKS, CONTACT_HREF } from '@/lib/constants';
+import { NAV_LINKS, WAITLIST_HREF } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
 import styles from './Header.module.scss';
@@ -58,11 +58,23 @@ export function Header() {
                   </Link>
                 </li>
               ))}
+              <li className={styles.header__mobileOnly}>
+                <Link
+                  href="/login"
+                  className={styles.header__navLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Login
+                </Link>
+              </li>
             </ul>
           </nav>
 
           <div className={styles.header__cta}>
-              <Button href={CONTACT_HREF} label="Join Wait List" variant="outline" light />
+            <Link href="/login" className={styles.header__login}>
+              Login
+            </Link>
+            <Button href={WAITLIST_HREF} label="Join Wait List" variant="outline" light target="_blank" />
           </div>
 
           <button

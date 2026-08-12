@@ -23,4 +23,7 @@ export const IMAGES = {
   contact: `${PLACEHOLDER_BASE}/contactus.webp`,
   teamMantaj: `${PLACEHOLDER_BASE}/mantaj_sidhu.png`,
   teamBaljeet: `${PLACEHOLDER_BASE}/baljeet_gill.png`,
+  teamHarjit: `${PLACEHOLDER_BASE}/team-harjit.webp`,
+  teamGurpreet: `${PLACEHOLDER_BASE}/team-gurpreet.webp`,
+  teamJagdeep: `${PLACEHOLDER_BASE}/team-jagdeep.webp`,
 } as const;
