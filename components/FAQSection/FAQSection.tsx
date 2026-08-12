@@ -77,7 +77,7 @@ export function FAQSection() {
             </li>
           ))}
         </ul>
-        <div className={styles.ctaBar}>
+        {/* <div className={styles.ctaBar}>
           <Image
               src={IMAGES.faqquest}
               alt="Faq Get In Touch"
@@ -92,7 +92,7 @@ export function FAQSection() {
             Can’t find the answer you’re looking for? Please chat to our friendly team.
           </p>
           <Button href="/contact" label="Get In Touch" variant="primary" />
-        </div>
+        </div> */}
       </Container>
     </section>
   );

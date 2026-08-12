@@ -113,8 +113,11 @@
 
   &__cta {
     margin-top: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
 
-    a {
+    a:not(.header__login) {
       border:1px solid $color-green-tagline;
       border-radius:15px 30px 15px 30px;
       padding:10px 20px;
@@ -122,10 +125,47 @@
       font-weight:400;
       font-size:18px;
       text-transform:uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: rgba($color-green-tagline, 0.1);
+        border-color: $color-green-tagline;
+      }
     } 
 
     @include respond-to('lg') {
       margin-top: 0;
+    }
+  }
+
+  &__login {
+    display: none;
+
+    @include respond-to('lg') {
+      display: inline-block;
+      color: $color-white;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      @include transition(color);
+      margin-right: $spacing-xs;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-green-tagline;
+      }
+    }
+  }
+
+  &__mobileOnly {
+    display: block;
+
+    @include respond-to('lg') {
+      display: none;
     }
   }
 
@@ -189,7 +229,7 @@
     padding: 25px 20px;
   }
 
-  .header__cta a {
+  .header__cta a:not(.header__login) {
     font-size: 16px;
     padding: 8px 16px;
   }
@@ -200,7 +240,7 @@
 @media (max-width: 768px) {
 
   /* Smaller CTA button */
-  .header__cta a {
+  .header__cta a:not(.header__login) {
     padding: 6px 14px;
     font-size: 14px;
     border-radius: 10px 20px 10px 20px;
@@ -245,7 +285,7 @@
   }
 
   /* Prevent CTA from stretching */
-  .header__cta a {
+  .header__cta a:not(.header__login) {
     white-space: nowrap;
     padding: 8px 10px;
     font-size: 12px;

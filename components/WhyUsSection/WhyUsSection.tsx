@@ -70,7 +70,7 @@ export function WhyUsSection() {
             <div className={styles.ctaBar__texticon}>👋</div>
             <span>Start Your Organic <br />Farming Journey Today!</span>
           </div>
-          <Button href="/contact" label="Get Started" variant="primary" />
+          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" target='_blank' label="Join Wait List" variant="primary" />
           </div>
       </div>
     </section>
