@@ -130,7 +130,7 @@ export function FeaturesSection() {
           </ul>
           </div>
 
-          <section className={styles.videoSection}>
+          {/* <section className={styles.videoSection}>
             <div className={styles.videoSection__wrapper}>
 
               <Image
@@ -168,7 +168,7 @@ export function FeaturesSection() {
               </div>
 
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { FeaturesSection } from '@/components/FeaturesSection/FeaturesSection';
 import { IMAGES } from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'How It Works',
+  title: 'How to Join',
   description: 'See how Gill Organics takes your chosen plot from natural cultivation to fresh home delivery.',
 };
 
@@ -14,9 +14,9 @@ export default function HowItWorksPage() {
       <BannerSection
         bannerImage={IMAGES.howworksinner}
         bannerImageAlt="Gill Organics farm process"
-        title="From Our Soil to Your Table."
-        description="See how your seasonal organic vegetables are grown, harvested and delivered fresh to your home."
-        btnText="Get Started"
+        title="How to Join Gill Organics"
+        description="Choose your farm experience and let us grow, harvest and deliver seasonal organic vegetables to your home."
+        btnText="Join Wait List"
         btnPath="/contact"
       />
       <FeaturesSection />

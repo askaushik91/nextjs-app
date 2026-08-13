@@ -50,9 +50,11 @@ export function Footer() {
           <ul className={styles.footer__links}>
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/services">Services</Link></li>
-            <li><Link href="/how-it-works">How It Works</Link></li>
+            <li><Link href="/how-it-works">How to Join</Link></li>
             {/* <li><Link href="/testimonials">Testimonials</Link></li> */}
             <li><Link href="/contact">Contact Us</Link></li>
+            <li><Link href="/refund-policy">Refund Policy</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
           </ul>
         </div>
 

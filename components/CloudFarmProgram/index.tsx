@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
@@ -49,14 +49,51 @@ const winterVegetables = [
   { id: 'rocket_leaves', name: 'Mixed Greens', localName: 'Rocket Leaves / Garden Cress / Dill' },
 ];
 
+const complementaryVegetables = [
+  { id: 'bhindi', name: 'Achari Chilli', localName: 'ਅਚਾਰੀ ਮਿਰਚ' },
+  { id: 'arbi', name: 'Taro Root', localName: 'ਅਰਬੀ' },
+  { id: 'gaajar', name: 'Baby Potato', localName: 'ਬੇਬੀ ਆਲੂ' },
+  { id: 'lobia', name: 'French Beans', localName: 'ਫ੍ਰੈਂਚ ਬੀਨਜ਼' },
+  { id: 'band_gobi', name: 'Kohlrabi', localName: 'ਗੰਢ ਗੋਭੀ' },
+  { id: 'bhindi', name: 'Green Chilli', localName: 'ਹਰੀ ਮਿਰਚ' },
+  { id: 'gaajar', name: 'Black Carrot', localName: 'ਕਾਲੀ ਗਾਜਰ' },
+  { id: 'dhaniya', name: 'Mint', localName: 'ਪੁਦੀਨਾ' },
+  { id: 'band_gobi', name: 'Purple Cabbage', localName: 'ਜਾਮਣੀ ਗੋਭੀ' },
+  { id: 'phull_gobi', name: 'Red Cauliflower', localName: 'ਲਾਲ ਫੁੱਲ ਗੋਭੀ' },
+  { id: 'bhindi', name: 'Bell Pepper', localName: 'ਸ਼ਿਮਲਾ ਮਿਰਚ' },
+  { id: 'phull_gobi', name: 'Yellow Cauliflower', localName: 'ਪੀਲੀ ਫੁੱਲ ਗੋਭੀ' },
+  { id: 'kheera', name: 'Cucamelon', localName: 'ਖੀਰਾ' },
+];
+
 export default function CloudFarmProgram() {
-  const [vegetableSeason, setVegetableSeason] = useState<'summer' | 'winter'>('summer');
+  const [produceTab, setProduceTab] = useState<'seasonal' | 'complementary'>('seasonal');
+  const [detailsRevealed, setDetailsRevealed] = useState(false);
+  const detailsRef = useRef<HTMLDivElement>(null);
   const practicalDetails = [
     { value: '150 sq. yd.', label: 'your dedicated farm plot' },
     { value: '6 months', label: 'in every growing season' },
     { value: '4–5 people', label: 'served by one mini-farm' },
     { value: 'Within 24 hrs', label: 'from harvest to doorstep' },
   ];
+
+  useEffect(() => {
+    const detailsElement = detailsRef.current;
+
+    if (!detailsElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setDetailsRevealed(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(detailsElement);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className={styles.cloudFarm}>
@@ -91,16 +128,22 @@ export default function CloudFarmProgram() {
               />
             </div>
 
-            <div className={styles.cloudFarm__info}>
+            <div
+              ref={detailsRef}
+              className={`${styles.cloudFarm__info} ${styles.cloudFarm__detailsInfo} ${
+                detailsRevealed ? styles.cloudFarm__detailsInfoVisible : ''
+              }`}
+            >
               <p className={styles.cloudFarm__cardLabel}>What&apos;s included</p>
               <h3>A farm that fits your family</h3>
               <ul>
-                <li>A dedicated 150 sq. yd. plot for one six-month summer or winter season.</li>
-                <li>Choose from around 20 seasonal vegetables for your plot—choose as many as you like.</li>
-                <li>Our expert farmers sow, grow and maintain everything using 100% organic practices.</li>
-                <li>Weekend harvests are delivered home within 24 hours, at no extra delivery charge.</li>
-                <li>Visit your plot to pick vegetables with help from our farm team.</li>
-                <li>Get farm updates and support through our app and WhatsApp.</li>
+                <li>On joining the program, you will be allotted a dedicated piece of farm land of ~150 sq. yd. for the season - Winter/Summer. A season lasts 6 months.</li>
+                <li>We share a list of ~20 items that can grow on your farm in that season and you choose which items you want on your farm - you may choose all. </li>
+                <li>Our team of expert farmers will sow and maintain your farm using 100% organic methods. Zero compromise on quality and authenticity.</li>
+                <li>Whatever your mini-farm produces in a week, it&apos;ll be harvested over the weekend and home delivered within 24 hours of harvesting and with no extra charge. One mini-farm gives enough weekly produce for the veggie/salad requirements of a family of 4-5 members.</li>
+                <li>You can also come to the farm anytime you want for plucking and our helper will help you pluck the best veggies.</li>
+                <li>You can also access our Farmhouse for a quality time with your family (subject to availability). The Farmhouse has a traditional Punjab feel to it with exhibits like charkha, madhaani, bonfire, library etc. and all other basic amenities.</li>
+                <li>You will constantly be in touch with our team via our App and Whatsapp for any request or query or a status update on your farm.</li>
               </ul>
               
               <div className={styles.cloudFarm__btnWrapper}>
@@ -121,34 +164,43 @@ export default function CloudFarmProgram() {
               <span>Seasonal harvest, grown naturally</span>
             </div>
             <div className={styles.cloudFarm__info}>
+              <div className={styles.cloudFarm__produceTabs} role="tablist" aria-label="Produce categories">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={produceTab === 'seasonal'}
+                  className={`${styles.cloudFarm__produceTab} ${
+                    produceTab === 'seasonal' ? styles.activeProduceTab : ''
+                  }`}
+                  onClick={() => setProduceTab('seasonal')}
+                >
+                  Seasonal Veggies
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={produceTab === 'complementary'}
+                  className={`${styles.cloudFarm__produceTab} ${
+                    produceTab === 'complementary' ? styles.activeProduceTab : ''
+                  }`}
+                  onClick={() => setProduceTab('complementary')}
+                >
+                  Complementary Veggies
+                </button>
+              </div>
+
               <div className={styles.cloudFarm__vegHeader}>
                 <div>
                   <p className={styles.cloudFarm__cardLabel}>Plan your plot</p>
-                  <h3>What can grow this season</h3>
-                </div>
-                
-                <div className={styles.cloudFarm__seasonToggle}>
-                  <button
-                    className={`${styles.cloudFarm__seasonBtn} ${
-                      vegetableSeason === 'summer' ? styles.activeSeason : ''
-                    }`}
-                    onClick={() => setVegetableSeason('summer')}
-                  >
-                    Summer
-                  </button>
-                  <button
-                    className={`${styles.cloudFarm__seasonBtn} ${
-                      vegetableSeason === 'winter' ? styles.activeSeason : ''
-                    }`}
-                    onClick={() => setVegetableSeason('winter')}
-                  >
-                    Winter
-                  </button>
+                  <h3>{produceTab === 'seasonal' ? 'Seasonal Fruits & Vegetables' : 'Complementary vegetables'}</h3>
                 </div>
               </div>
 
               <div className={styles.cloudFarm__vegGrid}>
-                {(vegetableSeason === 'summer' ? summerVegetables : winterVegetables).map((veg, index) => {
+                {(produceTab === 'seasonal'
+                  ? [...summerVegetables, ...winterVegetables]
+                  : complementaryVegetables
+                ).map((veg, index) => {
                   const IconComponent = VegetableIcons[veg.id] || VegetableIcons.tomato;
                   return (
                     <div

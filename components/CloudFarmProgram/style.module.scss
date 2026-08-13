@@ -426,6 +426,74 @@
     }
   }
 
+  &__produceTabs {
+    display: flex;
+    align-self: flex-start;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(5, 45, 35, 0.6);
+  }
+
+  &__produceTab {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__detailsInfo {
+    .cloudFarm__cardLabel,
+    h3,
+    li {
+      animation: none;
+    }
+  }
+
+  &__detailsInfoVisible {
+    .cloudFarm__cardLabel,
+    h3,
+    li {
+      animation: cloudFarmReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    h3 {
+      animation: cloudFarmReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both,
+        cloudFarmHeadingGlow 3.4s ease-in-out 0.73s infinite;
+    }
+
+    li {
+      @for $item from 1 through 7 {
+        &:nth-child(#{$item}) {
+          animation-delay: #{0.16s + ($item * 0.09s)};
+        }
+      }
+
+      &::before {
+        animation: cloudFarmCheckPulse 2.8s ease-in-out infinite;
+      }
+    }
+  }
+
+  .activeProduceTab {
+    background: #72ff00;
+    color: #052D23;
+    box-shadow: 0 4px 12px rgba(114, 255, 0, 0.2);
+  }
+
   &__vegCardWide {
     grid-column: span 2;
 
@@ -477,6 +545,58 @@
   }
 }
 
+@keyframes cloudFarmReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cloudFarmCheckPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(81, 255, 0, 0));
+    transform: scale(1);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px rgba(81, 255, 0, 0.65));
+    transform: scale(1.12);
+  }
+}
+
+@keyframes cloudFarmHeadingGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(81, 255, 0, 0);
+  }
+
+  50% {
+    text-shadow: 0 0 18px rgba(81, 255, 0, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloudFarm {
+    &__detailsInfoVisible {
+      .cloudFarm__cardLabel,
+      h3,
+      li {
+        animation: none;
+      }
+
+      li::before {
+        animation: none;
+      }
+    }
+  }
+}
+
 /* ======================
    RESPONSIVE
    ====================== */
@@ -522,6 +642,15 @@
 
     &__vegCard {
       padding: 10px;
+    }
+
+    &__produceTabs {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__produceTab {
+      width: 100%;
     }
   }
 }

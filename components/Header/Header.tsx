@@ -60,7 +60,7 @@ export function Header() {
               ))}
               <li className={styles.header__mobileOnly}>
                 <Link
-                  href="/login"
+                  href="#"
                   className={styles.header__navLink}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -71,7 +71,7 @@ export function Header() {
           </nav>
 
           <div className={styles.header__cta}>
-            <Link href="/login" className={styles.header__login}>
+            <Link href="#" className={styles.header__login}>
               Login
             </Link>
             <Button href={WAITLIST_HREF} label="Join Wait List" variant="outline" light target="_blank" />
