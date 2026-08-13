@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NAV_LINKS, WAITLIST_HREF } from '@/lib/constants';
+import { CONTACT_INFO, NAV_LINKS, WAITLIST_HREF } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
 import styles from './Header.module.scss';
@@ -68,6 +68,24 @@ export function Header() {
                 </Link>
               </li>
             </ul>
+
+            <div className={styles.header__mobileMenuFooter}>
+              <div className={styles.header__mobileContact}>
+                <p className={styles.header__mobileMenuLabel}>Get in touch</p>
+                <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
+                  {CONTACT_INFO.phone}
+                </a>
+                <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+              </div>
+
+              <div className={styles.header__mobileSocial}>
+                <p className={styles.header__mobileMenuLabel}>Follow us</p>
+                <div className={styles.header__mobileSocialLinks}>
+                  <a href="https://www.facebook.com/gillorganics/" target="_blank" rel="noopener noreferrer">Facebook</a>
+                  <a href="https://www.instagram.com/gillorganics/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+              </div>
+            </div>
           </nav>
 
           <div className={styles.header__cta}>

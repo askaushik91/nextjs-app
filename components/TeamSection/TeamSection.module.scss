@@ -199,6 +199,37 @@
     font-weight: 600;
     margin: 0;
   }
+
+  &__instagram {
+    align-items: center;
+    color: $color-green-tagline;
+    display: inline-flex;
+    font-family: $font-body;
+    font-size: 0.86rem;
+    font-weight: 600;
+    gap: 8px;
+    margin-top: 14px;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+  }
+
+  &__instagramDot {
+    fill: currentColor;
+    stroke: none;
+  }
 }
 
 .team--full {

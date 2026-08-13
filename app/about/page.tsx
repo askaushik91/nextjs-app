@@ -74,7 +74,12 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <p className={styles.section__text}>
-                In an era of mass production and mysterious supply chains, Green Harvest Farms was born from a simple question: Do you know exactly where your vegetables come from? We realized that while many want to eat organic and fresh, not everyone has the time or expertise to manage a farm. We bridged that gap. By offering leased agricultural land and expert cultivation, we give you the benefits of owning a farm without the labor, ensuring your family receives produce that is never frozen, never chemically enhanced, and always in season.
+                Gill Organics is the brainchild of 2 cousins from Patiala - Dr. Baljeet Singh Gill and Mantaj Singh Sidhu, who have grown up in a farming household and are as passionate about organic ways of living as they are concerned about the level of harmful elements found in our food today.<br /><br />
+                One fine October, Mantaj returns back to India after quitting his job at Google Ireland and sets out to solve the problem of chemical-laden food in Punjab. A chance phone call with his cousin, Baljeet - who has also had the entrepreneurial urge always - and both the cousins decide to combine their ethics and skills and solve this problem together.<br /><br />
+                Starting with 4-5 friends and family as their first customers, they spent a year as a pilot to see if they can even deliver on the promise of regular, genuine, fresh organic food supply, which they did.<br /><br />
+                For their first commercial season they initially struggled to convince local customers to join their program, but one viral reel got them into household conversations across the country and the rest is history.<br /><br />
+                Now, Gill Organics is serving three cities and hundreds of families, sending them weekly supply of organic food of the highest order and good vibes.<br /><br />
+                The cousins draw inspiration from their late grandfather - Sr. Baldev Singh Sidhu - who was a firm believer in an organic lifestyle and lived healthily to a ripe age of 94.
               </p>
             </div>
             <div className={styles.section__imageWrap}>

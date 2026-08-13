@@ -56,7 +56,7 @@
   }
 
   &__heading {
-    font-size: clamp(3.6rem, 3vw, 2.25rem);
+    font-size: clamp(2rem, 3vw, 3.6rem);
     color: $color-white;
     margin-bottom: $spacing-md;
     font-weight:400;
@@ -137,6 +137,12 @@
     height:120px;
     position:relative;
     display:block;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__number {
@@ -236,16 +242,32 @@
     padding: 30px 20px;
   }
 
+  .howItWorksOuter__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 24px;
+  }
+
   .howItWorksOuter__item {
     gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
   }
 
   .howItWorksOuter__icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 88px;
+    height: 88px;
+  }
+
+  .howItWorksOuter__number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.875rem;
   }
 
   .howItWorksOuter__title {
@@ -267,10 +289,20 @@
     padding: 24px 16px;
   }
 
+  .howItWorksOuter__list {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .howItWorksOuter__icon {
-    width: 34px;
-    height: 34px;
-    font-size: 0.9rem;
+    width: 76px;
+    height: 76px;
+  }
+
+  .howItWorksOuter__number {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
   }
 
   .howItWorksOuter__title {
