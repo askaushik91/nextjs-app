@@ -11,6 +11,15 @@ import CloudFarmProgram from '@/components/CloudFarmProgram';
 import { TeamSection } from '@/components/TeamSection/TeamSection';
 import { MapSection } from '@/components/MapSection/MapSection';
 
+export const metadata: Metadata = {
+  title: 'Organic Cloud Farms & Seasonal Vegetable Delivery in Punjab',
+  description:
+    'Adopt your own organic cloud farm with Gill Organics in Patiala, Punjab. Choose seasonal vegetables and receive fresh, chemical-free produce at your doorstep.',
+  alternates: {
+    canonical: '/',
+  },
+};
+
 
 export default function HomePage() {
   return (
@@ -30,7 +39,7 @@ export default function HomePage() {
       <Hero />
       {/* <AboutSection /> */}
       {/* <ServicesSection /> */}
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
       <CloudFarmProgram />
       <TeamSection />
       <ImageGallerySection />
@@ -42,3 +51,4 @@ export default function HomePage() {
     </>
   );
 }
+import type { Metadata } from 'next';

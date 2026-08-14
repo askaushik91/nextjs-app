@@ -66,7 +66,7 @@ const complementaryVegetables = [
 ];
 
 export default function CloudFarmProgram() {
-  const [produceTab, setProduceTab] = useState<'seasonal' | 'complementary'>('seasonal');
+  const [season, setSeason] = useState<'summer' | 'winter'>('summer');
   const [detailsRevealed, setDetailsRevealed] = useState(false);
   const detailsRef = useRef<HTMLDivElement>(null);
   const practicalDetails = [
@@ -75,6 +75,8 @@ export default function CloudFarmProgram() {
     { value: '4–5 people', label: 'served by one mini-farm' },
     { value: 'Within 24 hrs', label: 'from harvest to doorstep' },
   ];
+  const seasonalVegetables = season === 'summer' ? summerVegetables : winterVegetables;
+  const seasonLabel = season === 'summer' ? 'Summer' : 'Winter';
 
   useEffect(() => {
     const detailsElement = detailsRef.current;
@@ -164,61 +166,54 @@ export default function CloudFarmProgram() {
               <span>Seasonal harvest, grown naturally</span>
             </div>
             <div className={styles.cloudFarm__info}>
-              <div className={styles.cloudFarm__produceTabs} role="tablist" aria-label="Produce categories">
+              <div className={styles.cloudFarm__produceTabs} role="tablist" aria-label="Growing seasons">
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={produceTab === 'seasonal'}
+                  aria-selected={season === 'summer'}
                   className={`${styles.cloudFarm__produceTab} ${
-                    produceTab === 'seasonal' ? styles.activeProduceTab : ''
+                    season === 'summer' ? styles.activeProduceTab : ''
                   }`}
-                  onClick={() => setProduceTab('seasonal')}
+                  onClick={() => setSeason('summer')}
                 >
-                  Seasonal Veggies
+                  Summer
                 </button>
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={produceTab === 'complementary'}
+                  aria-selected={season === 'winter'}
                   className={`${styles.cloudFarm__produceTab} ${
-                    produceTab === 'complementary' ? styles.activeProduceTab : ''
+                    season === 'winter' ? styles.activeProduceTab : ''
                   }`}
-                  onClick={() => setProduceTab('complementary')}
+                  onClick={() => setSeason('winter')}
                 >
-                  Complementary Veggies
+                  Winter
                 </button>
               </div>
 
               <div className={styles.cloudFarm__vegHeader}>
                 <div>
                   <p className={styles.cloudFarm__cardLabel}>Plan your plot</p>
-                  <h3>{produceTab === 'seasonal' ? 'Seasonal Fruits & Vegetables' : 'Complementary vegetables'}</h3>
+                  <h3>Seasonal Fruits &amp; Vegetables</h3>
                 </div>
               </div>
 
-              <div className={styles.cloudFarm__vegGrid}>
-                {(produceTab === 'seasonal'
-                  ? [...summerVegetables, ...winterVegetables]
-                  : complementaryVegetables
-                ).map((veg, index) => {
-                  const IconComponent = VegetableIcons[veg.id] || VegetableIcons.tomato;
-                  return (
-                    <div
-                      key={`${veg.id}-${index}`}
-                      className={`${styles.cloudFarm__vegCard} ${
-                        veg.id === 'rocket_leaves' ? styles.cloudFarm__vegCardWide : ''
-                      }`}
-                    >
-                      <div className={styles.cloudFarm__vegIconWrapper}>
-                        <IconComponent size="32" />
-                      </div>
-                      <div className={styles.cloudFarm__vegNames}>
-                        <span className={styles.cloudFarm__vegName}>{veg.name}</span>
-                        <span className={styles.cloudFarm__vegLocalName}>{veg.localName}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className={styles.cloudFarm__produceGroup}>
+                <h4>{seasonLabel} Veggies</h4>
+                <div className={styles.cloudFarm__vegGrid}>
+                  {seasonalVegetables.map((veg, index) => (
+                    <VegetableCard key={`${veg.id}-${index}`} vegetable={veg} />
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.cloudFarm__produceGroup}>
+                <h4>Complementary Veggies</h4>
+                <div className={styles.cloudFarm__vegGrid}>
+                  {complementaryVegetables.map((veg, index) => (
+                    <VegetableCard key={`${veg.id}-${index}`} vegetable={veg} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -226,6 +221,22 @@ export default function CloudFarmProgram() {
         </div>
       </div>
     </section>
+  );
+}
+
+function VegetableCard({ vegetable }: { vegetable: { id: string; name: string; localName: string } }) {
+  const IconComponent = VegetableIcons[vegetable.id] || VegetableIcons.tomato;
+
+  return (
+    <div className={styles.cloudFarm__vegCard}>
+      <div className={styles.cloudFarm__vegIconWrapper}>
+        <IconComponent size="32" />
+      </div>
+      <div className={styles.cloudFarm__vegNames}>
+        <span className={styles.cloudFarm__vegName}>{vegetable.name}</span>
+        <span className={styles.cloudFarm__vegLocalName}>{vegetable.localName}</span>
+      </div>
+    </div>
   );
 }
 

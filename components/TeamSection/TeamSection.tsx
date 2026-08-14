@@ -33,7 +33,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: 'Ex-Google, MBA',
     image: IMAGES.mantaj,
     imageAlt: 'Mantaj Sidhu from Gill Organics at the farm',
-    imagePosition: 'top 38%',
+    imagePosition: 'center 35%',
     description:[
       "Mantaj grew up in Patiala, did his MBA from Panjab University, Chandigarh and his flair for technology and marketing eventually led him across the world, ending up at Google Ireland. His entrepreneurial itch and a desire to do something meaningful for the society that can impact people's lives for good led him back to his motherland and he's handling the tech and operations at Gill Organics.",
       "He likes to produce films and documentaries and likes to travel and meet people from different cultures."

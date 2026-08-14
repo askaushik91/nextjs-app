@@ -6,6 +6,15 @@ import BannerSection from '../../components/BannerSection/BannerSection';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
 
+export const metadata: Metadata = {
+  title: 'Customer Testimonials',
+  description:
+    'Read experiences from families enjoying fresh, seasonal organic produce and the Gill Organics cloud farm program.',
+  alternates: {
+    canonical: '/testimonials',
+  },
+};
+
 export default function TestimonialsPage() {
   return (
     <div>

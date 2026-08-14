@@ -20,6 +20,8 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Contact Us', href: '/contact' },
 ];
 
+export const HEADER_NAV_LINKS = NAV_LINKS.filter((link) => link.href !== '/how-it-works');
+
 export const CONTACT_HREF = '/contact';
 export const WAITLIST_HREF =
   'https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform';
@@ -31,9 +33,9 @@ export const FOOTER_QUICK_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  address: '123 Farm Road, Green Valley, Countryside',
-  phone: '+1 (555) 123-4567',
-  email: 'hello@gillorganics.com',
+  address: 'Gill Organics - Cloud Farms, Pind, New, Fatehpur, Nawan Fatehpur, Punjab 147006',
+  phone: '9779908001',
+  email: 'gillorganics@gmail.com',
 };
 
 export const SOCIAL_LINKS = [

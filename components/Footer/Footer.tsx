@@ -7,6 +7,7 @@ import {
   SITE_NAME,
   SITE_DESCRIPTION,
   FOOTER_QUICK_LINKS,
+  HEADER_NAV_LINKS,
   CONTACT_INFO,
 } from '@/lib/constants';
 import styles from './Footer.module.scss';
@@ -48,13 +49,9 @@ export function Footer() {
           <h3 className={styles.footer__columnTitle}>Useful Links</h3>
 
           <ul className={styles.footer__links}>
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/services">Services</Link></li>
-            <li><Link href="/how-it-works">How to Join</Link></li>
-            {/* <li><Link href="/testimonials">Testimonials</Link></li> */}
-            <li><Link href="/contact">Contact Us</Link></li>
-            <li><Link href="/refund-policy">Refund Policy</Link></li>
-            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            {HEADER_NAV_LINKS.map((link) => (
+              <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+            ))}
           </ul>
         </div>
 
@@ -64,7 +61,14 @@ export function Footer() {
 
           <ul className={styles.footer__links}>
             <li><Link href="https://www.facebook.com/gillorganics/" target="_blank">Facebook</Link></li>
-            <li><Link href="https://www.instagram.com/gillorganics/" target="_blank">Twitter</Link></li>
+            <li><Link href="https://www.instagram.com/gillorganics/" target="_blank">Instagram</Link></li>
+          </ul>
+
+          <h3 className={`${styles.footer__columnTitle} ${styles.footer__policyTitle}`}>Policy</h3>
+
+          <ul className={styles.footer__links}>
+            <li><Link href="/refund-policy">Refund Policy</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
           </ul>
         </div>
 

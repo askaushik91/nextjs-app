@@ -5,6 +5,15 @@ import { Container } from '@/components/Container/Container';
 import BannerSection from '../../components/BannerSection/BannerSection';
 import styles from './services.module.scss';
 
+export const metadata: Metadata = {
+  title: 'Organic Farming & Seasonal Delivery Services',
+  description:
+    'Explore Gill Organics services: organic farmland programs, seasonal cultivation, fresh harvest delivery, and farm-to-door produce in Punjab.',
+  alternates: {
+    canonical: '/services',
+  },
+};
+
 const SERVICES = [
   {
     title: 'Farmland Leasing',

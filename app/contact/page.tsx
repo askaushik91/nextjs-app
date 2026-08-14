@@ -11,10 +11,13 @@ import styles from './contact.module.scss';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Gill Organics. Address, phone, email, and contact form coming soon.',
+    'Contact Gill Organics Cloud Farms in Fatehpur, Punjab for organic farm programs, seasonal vegetables, and fresh delivery enquiries.',
+  alternates: {
+    canonical: '/contact',
+  },
   openGraph: {
     title: 'Contact | Gill Organics',
-    description: 'Address, phone, email, and contact form for Gill Organics.',
+    description: 'Contact Gill Organics Cloud Farms in Fatehpur, Punjab for organic farm and delivery enquiries.',
   },
 };
 

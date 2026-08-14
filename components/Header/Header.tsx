@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CONTACT_INFO, NAV_LINKS, WAITLIST_HREF } from '@/lib/constants';
+import { CONTACT_INFO, HEADER_NAV_LINKS, WAITLIST_HREF } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
 import { Button } from '@/components/Button/Button';
 import styles from './Header.module.scss';
@@ -47,7 +47,7 @@ export function Header() {
             aria-label="Main navigation"
           >
             <ul className={styles.header__navList}>
-              {NAV_LINKS.map((link) => (
+              {HEADER_NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -92,7 +92,7 @@ export function Header() {
             <Link href="#" className={styles.header__login}>
               Login
             </Link>
-            <Button href={WAITLIST_HREF} label="Join Wait List" variant="outline" light target="_blank" />
+            <Button href={WAITLIST_HREF} label="Join Wait List" variant="primary" target="_blank" />
           </div>
 
           <button
