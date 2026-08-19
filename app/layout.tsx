@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Abril_Fatface } from 'next/font/google';
+import { Poppins, Abril_Fatface, Noto_Sans_Gurmukhi } from 'next/font/google';
 import '@/styles/globals.scss';
 import { Header } from '@/components/Header/Header';
 import { Footer } from '@/components/Footer/Footer';
@@ -22,6 +22,13 @@ const abril = Abril_Fatface({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-heading',
+  display: 'swap',
+});
+
+const notoSansGurmukhi = Noto_Sans_Gurmukhi({
+  subsets: ['gurmukhi'],
+  weight: ['400', '500', '600'],
+  variable: '--font-gurmukhi',
   display: 'swap',
 });
 
@@ -114,7 +121,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${abril.variable}`}
+      className={`${poppins.variable} ${abril.variable} ${notoSansGurmukhi.variable}`}
     >
       <body>
         <script

@@ -92,7 +92,7 @@ export function Header() {
             <Link href="#" className={styles.header__login}>
               Login
             </Link>
-            <Button href={WAITLIST_HREF} label="Join Wait List" variant="primary" target="_blank" />
+            <Button href={WAITLIST_HREF} label="Join Waitlist" variant="primary" target="_blank" />
           </div>
 
           <button

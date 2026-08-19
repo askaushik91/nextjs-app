@@ -33,7 +33,7 @@ export function Button({
   const classNames = [
     styles.button,
     styles[`button--${variant}`],
-    label === 'Join Wait List' ? styles['button--waitlist'] : '',
+    label === 'Join Waitlist' ? styles['button--waitlist'] : '',
     light ? styles['button--light'] : '',
     className,
   ]

@@ -16,7 +16,7 @@ export default function HowItWorksPage() {
         bannerImageAlt="Gill Organics farm process"
         title="How to Join Gill Organics"
         description="Choose your farm experience and let us grow, harvest and deliver seasonal organic vegetables to your home."
-        btnText="Join Wait List"
+        btnText="Join Waitlist"
         btnPath="/contact"
       />
       <FeaturesSection />

@@ -429,7 +429,7 @@
     &:hover {
       background: rgba(40, 85, 74, 0.35);
       border-color: #72ff00;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
                   0 0 20px rgba(114, 255, 0, 0.1);
       transform: translateY(-4px);
 
@@ -437,6 +437,27 @@
         transform: scale(1.1) rotate(6deg);
         background: rgba(114, 255, 0, 0.15);
         box-shadow: 0 0 12px rgba(114, 255, 0, 0.2);
+      }
+    }
+  }
+
+  &__vegCardSimple {
+    align-items: flex-start;
+    gap: 9px;
+    padding: 6px 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      transform: translateX(3px);
+
+      .cloudFarm__vegName {
+        color: #72ff00;
       }
     }
   }
@@ -537,6 +558,22 @@
     }
   }
 
+  &__vegCheck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    margin-top: 1px;
+    background: #72ff00;
+    color: #063126;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
   &__vegNames {
     display: flex;
     flex-direction: column;
@@ -553,6 +590,7 @@
   }
 
   &__vegLocalName {
+    font-family: var(--font-gurmukhi), $font-body;
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.68rem;
     overflow-wrap: anywhere;
@@ -659,6 +697,10 @@
       padding: 10px;
     }
 
+    &__vegCardSimple {
+      padding: 7px 0;
+    }
+
     &__produceTabs {
       width: 100%;
     }
@@ -677,6 +719,10 @@
 
     &__vegCard {
       min-height: 62px;
+    }
+
+    &__vegCardSimple {
+      min-height: 0;
     }
   }
 }

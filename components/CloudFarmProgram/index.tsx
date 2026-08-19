@@ -149,7 +149,7 @@ export default function CloudFarmProgram() {
               </ul>
               
               <div className={styles.cloudFarm__btnWrapper}>
-                <Button href={WAITLIST_HREF} label="Join Wait List" variant="primary" target="_blank" />
+                <Button href={WAITLIST_HREF} label="Join Waitlist" variant="primary" target="_blank" />
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function CloudFarmProgram() {
                 <h4>Complementary Veggies</h4>
                 <div className={styles.cloudFarm__vegGrid}>
                   {complementaryVegetables.map((veg, index) => (
-                    <VegetableCard key={`${veg.id}-${index}`} vegetable={veg} />
+                    <VegetableCard key={`${veg.id}-${index}`} vegetable={veg} isComplementary />
                   ))}
                 </div>
               </div>
@@ -224,17 +224,27 @@ export default function CloudFarmProgram() {
   );
 }
 
-function VegetableCard({ vegetable }: { vegetable: { id: string; name: string; localName: string } }) {
+function VegetableCard({
+  vegetable,
+  isComplementary = false,
+}: {
+  vegetable: { id: string; name: string; localName: string };
+  isComplementary?: boolean;
+}) {
   const IconComponent = VegetableIcons[vegetable.id] || VegetableIcons.tomato;
 
   return (
-    <div className={styles.cloudFarm__vegCard}>
-      <div className={styles.cloudFarm__vegIconWrapper}>
-        <IconComponent size="32" />
-      </div>
+    <div className={`${styles.cloudFarm__vegCard} ${isComplementary ? styles.cloudFarm__vegCardSimple : ''}`}>
+      {isComplementary ? (
+        <span className={styles.cloudFarm__vegCheck} aria-hidden="true">✓</span>
+      ) : (
+        <div className={styles.cloudFarm__vegIconWrapper}>
+          <IconComponent size="32" />
+        </div>
+      )}
       <div className={styles.cloudFarm__vegNames}>
         <span className={styles.cloudFarm__vegName}>{vegetable.name}</span>
-        <span className={styles.cloudFarm__vegLocalName}>{vegetable.localName}</span>
+        <span className={styles.cloudFarm__vegLocalName} lang="pa-Guru">{vegetable.localName}</span>
       </div>
     </div>
   );

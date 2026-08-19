@@ -60,7 +60,7 @@ export function Hero() {
         <div className={styles.hero__cta}>
           <Button
             href={WAITLIST_HREF}
-            label="Join Wait List"
+            label="Join Waitlist"
             variant="primary"
             target="_blank"
           />

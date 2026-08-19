@@ -8,7 +8,7 @@ const PLACEHOLDER_BASE = '/images';
 export const IMAGES = {
   logo:`${PLACEHOLDER_BASE}/GillOrganicsLogo.png`,
   hero: `${PLACEHOLDER_BASE}/HeroImage.webp`,
-  mantaj: `${PLACEHOLDER_BASE}/mantaj-photo.png`,
+  mantaj: `${PLACEHOLDER_BASE}/mantajphoto.webp`,
   baljeet: `${PLACEHOLDER_BASE}/baljeet.webp`,
   about: `${PLACEHOLDER_BASE}/aboutImage.webp`,
   aboutinner: `${PLACEHOLDER_BASE}/innerAbout.webp`,

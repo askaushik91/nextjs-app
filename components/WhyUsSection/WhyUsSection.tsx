@@ -34,8 +34,8 @@ export function WhyUsSection() {
         <div className={styles.section__grid}>
           <div className={styles.section__imageWrap}>
             <Image
-              src={IMAGES.whyUs}
-              alt="Lush organic crops growing naturally"
+              src={IMAGES.contact}
+              alt="Fresh organic produce from Gill Organics"
               width={600}
               height={800}
               className={styles.section__image}
@@ -70,7 +70,7 @@ export function WhyUsSection() {
             <div className={styles.ctaBar__texticon}>👋</div>
             <span>Start Your Organic <br />Farming Journey Today!</span>
           </div>
-          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" target='_blank' label="Join Wait List" variant="primary" />
+          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" target='_blank' label="Join Waitlist" variant="primary" />
           </div>
       </div>
     </section>

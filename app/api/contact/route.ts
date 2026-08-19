@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const RECIPIENT = 'gillorganics@gmail.com';
+const RECIPIENTS = ['kaushik.ashish91@outlook.com', 'kaushikashish952@gmail.com'];
 
 const escapeHtml = (value: string) =>
   value.replace(/[&<>'"]/g, (character) => ({
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: process.env.EMAIL_FROM ?? 'Gill Organics <onboarding@resend.dev>',
-      to: [RECIPIENT],
+      to: RECIPIENTS,
       reply_to: email,
       subject,
       html: `<h2>${escapeHtml(subject)}</h2><table>${entries}</table>`,
