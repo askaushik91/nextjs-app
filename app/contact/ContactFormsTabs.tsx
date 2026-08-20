@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './contact.module.scss';
 
 const tabs = [
@@ -38,16 +38,28 @@ export default function ContactFormsTabs() {
   const [submissionState, setSubmissionState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    if (submissionState !== 'success') return;
+
+    const timeout = window.setTimeout(() => {
+      setSubmissionState('idle');
+      setMessage('');
+    }, 5000);
+
+    return () => window.clearTimeout(timeout);
+  }, [submissionState]);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
     setSubmissionState('sending');
     setMessage('');
 
     try {
-      const response = await fetch('/api/contact', { method: 'POST', body: new FormData(event.currentTarget) });
+      const response = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Unable to send your enquiry.');
-      event.currentTarget.reset();
+      form.reset();
       setSubmissionState('success');
       setMessage('Thank you — your details have been sent successfully.');
     } catch (error) {

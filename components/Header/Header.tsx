@@ -59,13 +59,15 @@ export function Header() {
                 </li>
               ))}
               <li className={styles.header__mobileOnly}>
-                <Link
-                  href="#"
+                <a
+                  href="https://app.gillorganics.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.header__navLink}
                   onClick={() => setMenuOpen(false)}
                 >
                   Login
-                </Link>
+                </a>
               </li>
             </ul>
 
@@ -89,9 +91,14 @@ export function Header() {
           </nav>
 
           <div className={styles.header__cta}>
-            <Link href="#" className={styles.header__login}>
+            <a
+              href="https://app.gillorganics.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.header__login}
+            >
               Login
-            </Link>
+            </a>
             <Button href={WAITLIST_HREF} label="Join Waitlist" variant="primary" target="_blank" />
           </div>
 

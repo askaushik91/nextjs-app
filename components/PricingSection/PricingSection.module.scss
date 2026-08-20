@@ -1,0 +1,204 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.pricing {
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-4xl 0;
+  background-color: $color-off-white;
+  color: $color-text-on-light;
+}
+
+.pricing__container {
+  position: relative;
+  z-index: 1;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+.pricing__header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.pricing__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: $color-green-accent;
+  text-transform: uppercase;
+  margin-bottom: $spacing-sm;
+  display: inline-block;
+}
+
+.pricing__heading {
+  font-family: $font-heading;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: $color-text-on-light;
+  margin: 0 0 $spacing-md;
+}
+
+.pricing__subheading {
+  font-family: $font-body;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  color: $color-text-on-light-grey;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  max-width: 800px;
+  margin: 0 auto;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pricing__card {
+  background: $color-white;
+  border: 1px solid rgba($color-green-primary, 0.08);
+  border-radius: 16px;
+  padding: $spacing-2xl $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba($color-green-accent, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  &--featured {
+    background: $color-white;
+    border: 1px solid rgba($color-green-accent, 0.35);
+    box-shadow: 0 10px 30px rgba(74, 124, 107, 0.08);
+
+    &:hover {
+      border-color: rgba($color-green-accent, 0.6);
+      box-shadow: 0 15px 40px rgba(74, 124, 107, 0.15);
+    }
+  }
+}
+
+.pricing__popularBadge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $color-green-accent;
+  color: $color-white;
+  border: 1px solid rgba($color-green-accent, 0.2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.pricing__cardHeader {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.pricing__cardTitle {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $color-text-on-light;
+  margin: 0 0 $spacing-md;
+}
+
+.pricing__priceContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $color-text-on-light;
+}
+
+.pricing__currency {
+  font-size: 1.15rem;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 6px;
+  color: $color-text-on-light;
+}
+
+.pricing__price {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: $color-text-on-light;
+}
+
+.pricing__slash {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $color-text-on-light-grey;
+}
+
+.pricing__billing {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-text-on-light-grey;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: $spacing-xs;
+  display: block;
+}
+
+.pricing__cardDivider {
+  height: 1px;
+  background: rgba($color-green-primary, 0.08);
+  margin-bottom: $spacing-xl;
+  width: 100%;
+}
+
+.pricing__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  flex-grow: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 0.95rem;
+    color: $color-text-on-light;
+    text-align: left;
+  }
+}
+
+.pricing__icon {
+  color: $color-green-accent;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.pricing__cta {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+
+  > * {
+    width: 100%;
+    justify-content: center;
+  }
+}

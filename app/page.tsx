@@ -10,6 +10,7 @@ import { InstagramFeed } from '@/components/InstagramFeed';
 import CloudFarmProgram from '@/components/CloudFarmProgram';
 import { TeamSection } from '@/components/TeamSection/TeamSection';
 import { MapSection } from '@/components/MapSection/MapSection';
+import { PricingSection } from '@/components/PricingSection/PricingSection';
 
 export const metadata: Metadata = {
   title: 'Organic Cloud Farms & Seasonal Vegetable Delivery in Punjab',
@@ -41,6 +42,7 @@ export default function HomePage() {
       {/* <ServicesSection /> */}
       {/* <FeaturesSection /> */}
       <CloudFarmProgram />
+      <PricingSection />
       <TeamSection />
       <ImageGallerySection />
       {/* <TestimonialsSection /> */}
