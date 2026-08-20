@@ -39,8 +39,8 @@ export function Footer() {
           </p>
 
           <p className={styles.footer__copyright}>
-            Copyright 2026 Gill Organics  |  Design & Developed By:
-            <span className={styles.footer__credit}> <Link href="/">The Digital Panthers</Link></span>
+            Copyright 2026 Gill Organics  |  Design &amp; Developed By:
+            <span className={styles.footer__credit}> <a href="https://thedigitalpanthers.com/" target="_blank" rel="noopener noreferrer">The Digital Panthers</a></span>
           </p>
         </div>
 
