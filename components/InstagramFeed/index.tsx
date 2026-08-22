@@ -24,12 +24,12 @@ const InstagramIcon = () => (
 const INSTAGRAM_URL = 'https://www.instagram.com/gillorganics?igsi=MTFmNDFuZnd3bW52dg%3D%3D';
 
 const mockPosts = [
-  { id: 1, image: '/images/videobg1.webp', alt: 'Fresh organic harvest' },
-  { id: 2, image: '/images/videobg2.webp', alt: 'Family at the organic farm' },
-  { id: 3, image: '/images/videobg3.webp', alt: 'Working in the fields' },
-  { id: 4, image: '/images/howWorksVideo.webp', alt: 'Beautiful organic crops' },
-  { id: 5, image: '/images/WhyChooseUs.webp', alt: 'Our farm selection' },
-  { id: 6, image: '/images/aboutCore.webp', alt: 'Farming with care' },
+  { id: 1, image: '/images/HeroImage.webp', alt: 'Wide view of the organic farm' },
+  { id: 2, image: '/images/aboutImage.webp', alt: 'Farmers carrying fresh produce in the field' },
+  { id: 3, image: '/images/aboutCore.webp', alt: 'Healthy organic crops growing on the farm' },
+  { id: 4, image: '/images/WhyChooseUs.webp', alt: 'Beautiful farm landscape' },
+  { id: 5, image: '/images/howitworks.webp', alt: 'Cultivating the organic soil' },
+  { id: 6, image: '/images/image6.jpg', alt: 'Beautiful sunset over the farmland' },
 ];
 
 export function InstagramFeed() {
