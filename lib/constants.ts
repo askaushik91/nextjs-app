@@ -20,7 +20,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Contact Us', href: '/contact' },
 ];
 
-export const HEADER_NAV_LINKS = NAV_LINKS.filter((link) => link.href !== '/how-it-works');
+export const HEADER_NAV_LINKS = NAV_LINKS.filter((link) => link.href !== '/how-it-works' && link.href !== '/contact');
 
 export const CONTACT_HREF = '/contact';
 export const WAITLIST_HREF =

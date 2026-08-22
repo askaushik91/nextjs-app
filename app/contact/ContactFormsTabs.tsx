@@ -37,6 +37,11 @@ export default function ContactFormsTabs() {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]['id']>('business');
   const [submissionState, setSubmissionState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
+  const [todayDate, setTodayDate] = useState('');
+
+  useEffect(() => {
+    setTodayDate(new Date().toISOString().split('T')[0]);
+  }, []);
 
   useEffect(() => {
     if (submissionState !== 'success') return;
@@ -56,7 +61,62 @@ export default function ContactFormsTabs() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+      const formData = new FormData(form);
+      const honeypot = formData.get('website');
+      if (honeypot) {
+        form.reset();
+        setSubmissionState('success');
+        setMessage('Thank you — your details have been sent successfully.');
+        return;
+      }
+
+      const email = String(formData.get('email') ?? '').trim();
+      const phoneRaw = String(formData.get('phone') ?? '').trim();
+      const countryCode = String(formData.get('countryCode') ?? '').trim();
+      const phone = phoneRaw.startsWith('+') ? phoneRaw : `${countryCode === 'US' ? '+1' : '+91'} ${phoneRaw}`;
+
+      let payload: any;
+      if (activeTab === 'business') {
+        const businessName = String(formData.get('businessName') ?? '').trim();
+        const company = String(formData.get('company') ?? '').trim();
+        const businessInterest = String(formData.get('businessInterest') ?? '').trim();
+        const messageVal = String(formData.get('message') ?? '').trim();
+
+        payload = {
+          formType: 'Business With Us',
+          name: businessName,
+          company,
+          email,
+          phone,
+          businessInterest,
+          message: messageVal,
+        };
+      } else {
+        const slotName = String(formData.get('slotName') ?? '').trim();
+        const guestsVal = formData.get('guests');
+        const guests = guestsVal ? parseInt(String(guestsVal), 10) : 0;
+        const preferredDate = String(formData.get('preferredDate') ?? '').trim();
+        const preferredTime = String(formData.get('preferredTime') ?? '').trim();
+        const messageVal = String(formData.get('message') ?? '').trim();
+
+        payload = {
+          formType: 'Book Your Slot',
+          name: slotName,
+          guests,
+          email,
+          phone,
+          preferredDate,
+          preferredTime,
+          message: messageVal,
+        };
+      }
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Unable to send your enquiry.');
       form.reset();
@@ -154,6 +214,7 @@ export default function ContactFormsTabs() {
                   name="phone"
                   className={styles.form__phoneInput}
                   placeholder="+91 98765 43210"
+                  required
                 />
               </div>
             </div>
@@ -166,6 +227,7 @@ export default function ContactFormsTabs() {
                 id="business-interest"
                 name="businessInterest"
                 className={styles.form__input}
+                required
               >
                 <option>Retail partnership</option>
                 <option>Bulk organic produce</option>
@@ -224,6 +286,8 @@ export default function ContactFormsTabs() {
                   name="guests"
                   className={styles.form__input}
                   placeholder="2"
+                  required
+                  min="1"
                 />
               </div>
             </div>
@@ -259,6 +323,7 @@ export default function ContactFormsTabs() {
                   name="phone"
                   className={styles.form__phoneInput}
                   placeholder="+91 98765 43210"
+                  required
                 />
               </div>
             </div>
@@ -273,6 +338,8 @@ export default function ContactFormsTabs() {
                   type="date"
                   name="preferredDate"
                   className={styles.form__input}
+                  required
+                  min={todayDate}
                 />
               </div>
 
@@ -285,6 +352,7 @@ export default function ContactFormsTabs() {
                   type="time"
                   name="preferredTime"
                   className={styles.form__input}
+                  required
                 />
               </div>
             </div>

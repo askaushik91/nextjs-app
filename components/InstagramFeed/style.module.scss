@@ -10,9 +10,10 @@
 }
 
 .container {
-  max-width: $container-max-width;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
+  padding: 0;
 }
 
 .heading {
@@ -21,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 $spacing-lg;
 
   span {
     font-size: 0.9rem;
@@ -64,29 +66,23 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: $spacing-md;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
   margin-bottom: $spacing-3xl;
-
-  @include respond-to('sm') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include respond-to('md') {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .gridItem {
   display: block;
-  border-radius: 12px;
+  position: relative;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    z-index: 1;
   }
 }
 
@@ -137,6 +133,7 @@
 .ctaWrapper {
   display: flex;
   justify-content: center;
+  padding: 0 $spacing-lg;
 }
 
 .followButton {

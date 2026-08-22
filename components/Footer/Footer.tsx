@@ -6,7 +6,6 @@ import { Button } from '@/components/Button/Button';
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
-  FOOTER_QUICK_LINKS,
   HEADER_NAV_LINKS,
   CONTACT_INFO,
 } from '@/lib/constants';
