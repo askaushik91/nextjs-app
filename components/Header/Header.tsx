@@ -74,9 +74,6 @@ export function Header() {
             <div className={styles.header__mobileMenuFooter}>
               <div className={styles.header__mobileContact}>
                 <p className={styles.header__mobileMenuLabel}>Get in touch</p>
-                <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
-                  {CONTACT_INFO.phone}
-                </a>
                 <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
               </div>
 

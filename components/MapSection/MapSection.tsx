@@ -16,10 +16,7 @@ export function MapSection() {
               <span className={styles.mapSection__icon}>📍</span>
               <p>{CONTACT_INFO.address}</p>
             </div>
-            <div className={styles.mapSection__item}>
-              <span className={styles.mapSection__icon}>📞</span>
-              <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>{CONTACT_INFO.phone}</a>
-            </div>
+
             <div className={styles.mapSection__item}>
               <span className={styles.mapSection__icon}>✉️</span>
               <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>

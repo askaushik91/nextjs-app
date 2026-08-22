@@ -34,7 +34,7 @@ export const FOOTER_QUICK_LINKS = [
 
 export const CONTACT_INFO = {
   address: 'Gill Organics - Cloud Farms, Pind, New, Fatehpur, Nawan Fatehpur, Punjab 147006',
-  phone: '9779908001',
+  phone: '',
   email: 'gillorganics@gmail.com',
 };
 

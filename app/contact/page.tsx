@@ -50,13 +50,7 @@ export default function ContactPage() {
               <p>{CONTACT_INFO.address}</p>
             </div>
 
-            <div className={styles.card}>
-              <div className={styles.icon}>📞</div>
-              <h3>Call Us</h3>
-              <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}>
-                {CONTACT_INFO.phone}
-              </a>
-            </div>
+
 
             <div className={styles.card}>
               <div className={styles.icon}>✉️</div>

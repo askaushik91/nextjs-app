@@ -84,7 +84,7 @@ export function ContactSection() {
                       type="tel"
                       name="phone"
                       className={styles.form__phoneInput}
-                      placeholder="9779908001"
+                      placeholder="Enter phone number"
                     />
                   </div>
                 </div>
