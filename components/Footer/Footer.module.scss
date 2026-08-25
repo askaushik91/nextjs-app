@@ -12,6 +12,28 @@
   overflow: hidden;
   border-top: 1px solid rgba($color-white, 0.15);
 
+  &__deco {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -3.5rem;
+    font-size: clamp(4rem, 12vw, 10.5rem);
+    font-weight: 800;
+    font-family: $font-heading;
+    color: $color-light-green;
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    z-index: 1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
   &__container {
     width: 100%;
     max-width: 1400px;
