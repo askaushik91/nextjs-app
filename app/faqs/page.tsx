@@ -15,7 +15,7 @@ export default function FaqsPage() {
         bannerImage={IMAGES.howworksinner}
         bannerImageAlt="Fresh organic vegetables growing on a Gill Organics farm"
         title="Frequently Asked Questions"
-        description="Everything you need to know about your Gill Organics cloud farm."
+        description=""
       />
       <FAQSection showAll />
     </>

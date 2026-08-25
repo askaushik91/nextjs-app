@@ -40,8 +40,8 @@ export default function HomePage() {
       <Hero />
       {/* <AboutSection /> */}
       {/* <ServicesSection /> */}
-      {/* <FeaturesSection /> */}
       <CloudFarmProgram />
+      <FeaturesSection />
       <PricingSection />
       <TeamSection />
       <ImageGallerySection />

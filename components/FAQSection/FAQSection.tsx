@@ -15,14 +15,22 @@ export function FAQSection({ showAll = false }: FAQSectionProps) {
   const items = showAll ? FAQ_ITEMS : FAQ_ITEMS.slice(0, 4);
 
   return (
-    <section className={styles.section} aria-labelledby="faq-heading">
+    <section
+      className={`${styles.section} ${showAll ? styles['section--inner'] : ''}`}
+      aria-labelledby={!showAll ? 'faq-heading' : undefined}
+      aria-label={showAll ? 'Frequently asked questions' : undefined}
+    >
       <Container>
-        <h5 className={styles.section__subheading}>
-          FAQs
-        </h5>
-        <h2 id="faq-heading" className={styles.section__heading}>
-          Frequently <br />asked questions
-        </h2>
+        {!showAll && (
+          <>
+            <h5 className={styles.section__subheading}>
+              FAQs
+            </h5>
+            <h2 id="faq-heading" className={styles.section__heading}>
+              Frequently <br />asked questions
+            </h2>
+          </>
+        )}
         <ul className={styles.list}>
           {items.map((item, i) => (
             <li key={i} className={styles.list__item}>

@@ -3,7 +3,11 @@
 
 .section {
   background-color: $color-bg-light-green;
-  padding:$spacing-4xl * 2  $spacing-md;
+  padding: $spacing-4xl * 2 $spacing-md;
+
+  &--inner {
+    padding-top: $spacing-4xl;
+  }
 
   &__subheading {
     font-family: $font-body;

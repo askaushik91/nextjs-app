@@ -81,22 +81,27 @@
 
 @media (max-width: 768px) {
   .button--waitlist {
-    min-width: 220px;
-    min-height: 62px;
-    font-size: 1rem;
+    min-width: 170px;
+    min-height: 44px;
+    font-size: 0.9rem;
+    padding: 0.35rem 1rem;
+
+    .button__arrow {
+      font-size: 1.4rem;
+    }
   }
 }
 
 @media (max-width: 420px) {
   .button--waitlist {
-    min-width: 128px;
+    min-width: 140px;
     min-height: 38px;
     gap: 0.25rem;
-    padding: 0.45rem;
-    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
 
     .button__arrow {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
   }
 }

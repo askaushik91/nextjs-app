@@ -13,11 +13,6 @@ const escapeHtml = (value: string): string =>
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { formType } = body;
-
-    if (!formType || !['Business With Us', 'Book Your Slot'].includes(formType)) {
-      return NextResponse.json({ error: 'Invalid form type specified.' }, { status: 400 });
-    }
 
     const email = String(body.email ?? '').trim();
     if (!email) {
@@ -39,114 +34,33 @@ export async function POST(request: Request) {
     }
 
     const message = String(body.message ?? '').trim();
-
-    let adminSubject = '';
-    let customerSubject = '';
-    let customerConfirmationMessage = '';
-    let emailFieldsHtml = '';
-
-    if (formType === 'Business With Us') {
-      const company = String(body.company ?? '').trim();
-      const businessInterest = String(body.businessInterest ?? '').trim();
-
-      if (!businessInterest) {
-        return NextResponse.json({ error: 'Business interest selection is required.' }, { status: 400 });
-      }
-
-      adminSubject = 'New Business Enquiry - Gill Organics';
-      customerSubject = 'We received your business enquiry - Gill Organics';
-      customerConfirmationMessage = 'Gill Organics has received your business enquiry and the team will contact you shortly.';
-
-      emailFieldsHtml = `
-        <div class="field-group">
-          <div class="label">Form Type</div>
-          <div class="value">${escapeHtml(formType)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Name</div>
-          <div class="value">${escapeHtml(name)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Company</div>
-          <div class="value">${company ? escapeHtml(company) : '<em>Not specified</em>'}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Email</div>
-          <div class="value"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></div>
-        </div>
-        <div class="field-group">
-          <div class="label">Phone Number</div>
-          <div class="value">${escapeHtml(phone)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Business Interest</div>
-          <div class="value">${escapeHtml(businessInterest)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Message</div>
-          <div class="value ${message ? 'value-message' : ''}">${message ? escapeHtml(message) : '<em>No message provided</em>'}</div>
-        </div>
-      `;
-    } else {
-      const guests = parseInt(body.guests, 10);
-      if (isNaN(guests) || guests < 1) {
-        return NextResponse.json({ error: 'Guests count must be at least 1.' }, { status: 400 });
-      }
-
-      const preferredDate = String(body.preferredDate ?? '').trim();
-      if (!preferredDate) {
-        return NextResponse.json({ error: 'Preferred date is required.' }, { status: 400 });
-      }
-
-      const todayStr = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
-      if (preferredDate < todayStr) {
-        return NextResponse.json({ error: 'Preferred date cannot be in the past.' }, { status: 400 });
-      }
-
-      const preferredTime = String(body.preferredTime ?? '').trim();
-      if (!preferredTime) {
-        return NextResponse.json({ error: 'Preferred time is required.' }, { status: 400 });
-      }
-
-      adminSubject = 'New Slot Booking Request - Gill Organics';
-      customerSubject = 'We received your booking request - Gill Organics';
-      customerConfirmationMessage = 'Gill Organics has received your booking request and the team will review the requested date/time and contact you shortly.';
-
-      emailFieldsHtml = `
-        <div class="field-group">
-          <div class="label">Form Type</div>
-          <div class="value">${escapeHtml(formType)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Name</div>
-          <div class="value">${escapeHtml(name)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Guests</div>
-          <div class="value">${guests}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Email</div>
-          <div class="value"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></div>
-        </div>
-        <div class="field-group">
-          <div class="label">Phone Number</div>
-          <div class="value">${escapeHtml(phone)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Preferred Date</div>
-          <div class="value">${escapeHtml(preferredDate)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Preferred Time</div>
-          <div class="value">${escapeHtml(preferredTime)}</div>
-        </div>
-        <div class="field-group">
-          <div class="label">Message</div>
-          <div class="value ${message ? 'value-message' : ''}">${message ? escapeHtml(message) : '<em>No message provided</em>'}</div>
-        </div>
-      `;
+    if (!message) {
+      return NextResponse.json({ error: 'Message is required.' }, { status: 400 });
     }
+
+    const adminSubject = 'New Contact Message - Gill Organics';
+    const customerSubject = 'We received your message - Gill Organics';
+    const customerConfirmationMessage =
+      'Gill Organics has received your message and our team will get back to you shortly.';
+
+    const emailFieldsHtml = `
+      <div class="field-group">
+        <div class="label">Name</div>
+        <div class="value">${escapeHtml(name)}</div>
+      </div>
+      <div class="field-group">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></div>
+      </div>
+      <div class="field-group">
+        <div class="label">Phone Number</div>
+        <div class="value">${escapeHtml(phone)}</div>
+      </div>
+      <div class="field-group">
+        <div class="label">Message</div>
+        <div class="value value-message">${escapeHtml(message)}</div>
+      </div>
+    `;
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey || apiKey === 're_your_resend_api_key' || apiKey === 'MY_SECRET_RESEND_API_KEY') {

@@ -90,7 +90,7 @@ export function FeaturesSection() {
         <div className={styles.section__grid}>
           <div className={styles.section__content}>
             <h5 className={styles.section__subheading}>
-              How it works
+              How to join
             </h5>
             <h2 id="features-heading" className={styles.section__heading}>
               Simple. Natural. Reliable.
@@ -98,7 +98,7 @@ export function FeaturesSection() {
             <p className={styles.section__text}>
               Choose your farmland lease plan, and our expert team takes care of everything — from soil preparation and natural cultivation to harvesting and packing. Once your seasonal vegetables are ready, we deliver the fresh produce directly to your home, ensuring a seamless farm-to-door experience without any hassle.
             </p>
-            <Button href="/how-it-works" label="Get your bookings today" variant="primary" />
+            <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" label="Get your bookings today" variant="primary" target="_blank" />
           </div>
           <div className={styles.howItWorksOuter}>
             <ul className={styles.howItWorksOuter__list}>

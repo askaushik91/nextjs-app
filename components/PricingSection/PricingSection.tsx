@@ -13,9 +13,9 @@ export function PricingSection() {
           <h2 id="pricing-heading" className={styles.pricing__heading}>
             PRICING
           </h2>
-          <p className={styles.pricing__subheading}>
+          {/* <p className={styles.pricing__subheading}>
             Choose your location and enjoy fresh, chemical-free organic vegetables delivered straight to your doorstep every week. Pay in 3 convenient instalments.
-          </p>
+          </p> */}
         </div>
 
         <div className={styles.pricing__grid}>
@@ -44,7 +44,7 @@ export function PricingSection() {
               </li>
               <li>
                 <span className={styles.pricing__icon}>✓</span>
-                <span>Pay in 3 instalments</span>
+                <span>Pay in 2 instalments</span>
               </li>
               <li>
                 <span className={styles.pricing__icon}>✓</span>
@@ -64,7 +64,6 @@ export function PricingSection() {
           {/* Card 2: Patiala */}
           <div className={`${styles.pricing__card} ${styles['pricing__card--featured']}`}>
             <div className={styles.pricing__cardHeader}>
-              <div className={styles.pricing__popularBadge}>FARM LOCATION</div>
               <h3 className={styles.pricing__cardTitle}>Patiala</h3>
               <div className={styles.pricing__priceContainer}>
                 <span className={styles.pricing__currency}>Rs.</span>
@@ -87,7 +86,7 @@ export function PricingSection() {
               </li>
               <li>
                 <span className={styles.pricing__icon}>✓</span>
-                <span>Pay in 3 instalments</span>
+                <span>Pay in 2 instalments</span>
               </li>
               <li>
                 <span className={styles.pricing__icon}>✓</span>

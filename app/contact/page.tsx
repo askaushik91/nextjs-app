@@ -4,7 +4,7 @@ import { Container } from '@/components/Container/Container';
 import BannerSection from '../../components/BannerSection/BannerSection';
 import { CONTACT_INFO } from '@/lib/constants';
 import { IMAGES } from '@/lib/images';
-import ContactFormsTabs from './ContactFormsTabs';
+import ContactForm from './ContactForm';
 import { MapSection } from '@/components/MapSection/MapSection';
 import styles from './contact.module.scss';
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   Our friendly team would love to hear from you.
                 </p>
 
-              <ContactFormsTabs />
+              <ContactForm />
             </div>
 
             <div className={styles.section__imageWrap}>

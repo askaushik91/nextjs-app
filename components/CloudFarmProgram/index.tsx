@@ -49,20 +49,23 @@ const winterVegetables = [
   { id: 'rocket_leaves', name: 'Mixed Greens', localName: 'Rocket Leaves / Garden Cress / Dill' },
 ];
 
-const complementaryVegetables = [
+const summerComplementaryVegetables = [
   { id: 'bhindi', name: 'Achari Chilli', localName: 'ਅਚਾਰੀ ਮਿਰਚ' },
   { id: 'arbi', name: 'Taro Root', localName: 'ਅਰਬੀ' },
+  { id: 'bhindi', name: 'Green Chilli', localName: 'ਹਰੀ ਮਿਰਚ' },
+  { id: 'kheera', name: 'Cucamelon', localName: 'ਚਿੱਬਰ' },
+];
+
+const winterComplementaryVegetables = [
   { id: 'gaajar', name: 'Baby Potato', localName: 'ਬੇਬੀ ਆਲੂ' },
   { id: 'lobia', name: 'French Beans', localName: 'ਫ੍ਰੈਂਚ ਬੀਨਜ਼' },
   { id: 'band_gobi', name: 'Kohlrabi', localName: 'ਗੰਢ ਗੋਭੀ' },
-  { id: 'bhindi', name: 'Green Chilli', localName: 'ਹਰੀ ਮਿਰਚ' },
   { id: 'gaajar', name: 'Black Carrot', localName: 'ਕਾਲੀ ਗਾਜਰ' },
   { id: 'dhaniya', name: 'Mint', localName: 'ਪੁਦੀਨਾ' },
   { id: 'band_gobi', name: 'Purple Cabbage', localName: 'ਜਾਮਣੀ ਗੋਭੀ' },
   { id: 'phull_gobi', name: 'Red Cauliflower', localName: 'ਲਾਲ ਫੁੱਲ ਗੋਭੀ' },
   { id: 'bhindi', name: 'Bell Pepper', localName: 'ਸ਼ਿਮਲਾ ਮਿਰਚ' },
   { id: 'phull_gobi', name: 'Yellow Cauliflower', localName: 'ਪੀਲੀ ਫੁੱਲ ਗੋਭੀ' },
-  { id: 'kheera', name: 'Cucamelon', localName: 'ਖੀਰਾ' },
 ];
 
 export default function CloudFarmProgram() {
@@ -76,6 +79,8 @@ export default function CloudFarmProgram() {
     { value: 'Within 24 hrs', label: 'from harvest to doorstep' },
   ];
   const seasonalVegetables = season === 'summer' ? summerVegetables : winterVegetables;
+  const seasonalComplementaryVegetables =
+    season === 'summer' ? summerComplementaryVegetables : winterComplementaryVegetables;
   const seasonLabel = season === 'summer' ? 'Summer' : 'Winter';
 
   useEffect(() => {
@@ -136,8 +141,8 @@ export default function CloudFarmProgram() {
                 detailsRevealed ? styles.cloudFarm__detailsInfoVisible : ''
               }`}
             >
-              <p className={styles.cloudFarm__cardLabel}>What&apos;s included</p>
-              <h3>A farm that fits your family</h3>
+              {/* <p className={styles.cloudFarm__cardLabel}>What&apos;s included</p> */}
+              <h3>HOW IT WORKS</h3>
               <ul>
                 <li>On joining the program, you will be allotted a dedicated piece of farm land of ~150 sq. yd. for the season - Winter/Summer. A season lasts 6 months.</li>
                 <li>We share a list of ~20 items that can grow on your farm in that season and you choose which items you want on your farm - you may choose all. </li>
@@ -210,7 +215,7 @@ export default function CloudFarmProgram() {
               <div className={styles.cloudFarm__produceGroup}>
                 <h4>Complementary Veggies</h4>
                 <div className={styles.cloudFarm__vegGrid}>
-                  {complementaryVegetables.map((veg, index) => (
+                  {seasonalComplementaryVegetables.map((veg, index) => (
                     <VegetableCard key={`${veg.id}-${index}`} vegetable={veg} isComplementary />
                   ))}
                 </div>

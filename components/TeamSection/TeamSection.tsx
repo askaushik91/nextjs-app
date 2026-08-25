@@ -139,10 +139,12 @@ export function TeamSection({ variant = 'preview' }: TeamSectionProps) {
                       <span>Instagram</span>
                     </a>
                   )}
-                  {Array.isArray(member.description) ? (
-                    member.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
-                  ) : (
-                    <p>{member.description}</p>
+                  {isFull && (
+                    Array.isArray(member.description) ? (
+                      member.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
+                    ) : (
+                      <p>{member.description}</p>
+                    )
                   )}
                 </div>
               </article>
