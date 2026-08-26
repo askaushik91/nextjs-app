@@ -347,5 +347,50 @@ export const VegetableIcons: Record<string, React.FC<IconProps>> = {
       <path d="M32 18C38 20 40 24 40 24M32 28C42 30 44 34 44 34M32 38C42 40 46 44 46 44" stroke="#15803D" strokeWidth="2" strokeLinecap="round" />
       <path d="M32 14C30 11 32 8 32 8" stroke="#15803D" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
+  ),
+  potato: ({ size = '100%', ...props }) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M16 32C16 22 24 16 32 16C40 16 48 22 48 32C48 42 40 48 32 48C24 48 16 42 16 32Z" fill="#B45309" />
+      <circle cx="24" cy="28" r="1.5" fill="#78350F" opacity="0.6" />
+      <circle cx="36" cy="24" r="1.5" fill="#78350F" opacity="0.6" />
+      <circle cx="40" cy="38" r="1.5" fill="#78350F" opacity="0.6" />
+      <circle cx="28" cy="40" r="1.5" fill="#78350F" opacity="0.6" />
+    </svg>
+  ),
+  red_spinach: ({ size = '100%', ...props }) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M32 52V20" stroke="#BE123C" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M32 24C24 24 16 16 16 16C16 16 24 16 32 22" fill="#22C55E" stroke="#BE123C" strokeWidth="1" />
+      <path d="M32 34C40 34 48 26 48 26C48 26 40 26 32 32" fill="#BE123C" stroke="#BE123C" strokeWidth="1" />
+      <path d="M32 44C22 44 14 36 14 36C14 36 24 36 32 42" fill="#22C55E" stroke="#BE123C" strokeWidth="1" />
+      <path d="M32 18C24 14 22 6 22 6C22 6 30 8 32 16" fill="#881337" stroke="#BE123C" strokeWidth="1" />
+    </svg>
+  ),
+  black_eyed_peas: ({ size = '100%', ...props }) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M28 10C24 20 22 36 28 54C29 57 32 58 31 54C28 38 29 22 32 10" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" />
+      <path d="M34 10C38 20 40 36 34 54C33 57 30 58 31 54C35 38 34 22 30 10" stroke="#15803D" strokeWidth="3" strokeLinecap="round" />
+      <path d="M26 8C28 10 34 10 36 8" stroke="#166534" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="26.5" cy="22" r="1.5" fill="#000000" />
+      <circle cx="26" cy="34" r="1.5" fill="#000000" />
+      <circle cx="28" cy="45" r="1.5" fill="#000000" />
+      <circle cx="34.5" cy="20" r="1.5" fill="#000000" />
+      <circle cx="36" cy="32" r="1.5" fill="#000000" />
+      <circle cx="34" cy="44" r="1.5" fill="#000000" />
+    </svg>
+  ),
+  water_spinach: ({ size = '100%', ...props }) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M32 54V16" stroke="#16A34A" strokeWidth="3" strokeLinecap="round" />
+      <path d="M32 20C20 20 14 10 14 10C14 10 24 12 32 16" fill="#4ADE80" stroke="#16A34A" strokeWidth="1" />
+      <path d="M32 32C44 32 50 22 50 22C50 22 40 24 32 28" fill="#15803D" stroke="#16A34A" strokeWidth="1" />
+      <path d="M32 42C20 42 14 32 14 32C14 32 24 34 32 38" fill="#22C55E" stroke="#16A34A" strokeWidth="1" />
+    </svg>
+  ),
+  radish_pods: ({ size = '100%', ...props }) => (
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M25 15C25 15 28 35 24 50C23 54 26 55 27 50C30 35 27 15 27 15" fill="#4ADE80" stroke="#15803D" strokeWidth="1.5" />
+      <path d="M35 12C35 12 38 32 34 47C33 51 36 52 37 47C40 32 37 12 37 12" fill="#22C55E" stroke="#15803D" strokeWidth="1.5" />
+    </svg>
   )
 };

@@ -25,6 +25,8 @@ const summerVegetables = [
   { id: 'lassan', name: 'Garlic', localName: 'Lassan' },
   { id: 'arbi', name: 'Taro Root', localName: 'Arbi' },
   { id: 'malabar_spinach', name: 'Malabar Spinach', localName: 'Malabar Spinach' },
+  { id: 'red_spinach', name: 'Red Spinach', localName: 'ਚਲਾਈ ਦਾ ਸਾਗ' },
+  { id: 'water_spinach', name: 'Water Spinach', localName: 'ਸਰਨਈ ਦਾ ਸਾਗ' },
 ];
 
 const winterVegetables = [
@@ -47,6 +49,9 @@ const winterVegetables = [
   { id: 'tomato', name: 'Tomato', localName: 'Tamattar' },
   { id: 'mattar', name: 'Green Peas', localName: 'Mattar' },
   { id: 'rocket_leaves', name: 'Mixed Greens', localName: 'Rocket Leaves / Garden Cress / Dill' },
+  { id: 'potato', name: 'Potato', localName: 'ਆਲੂ' },
+  { id: 'black_eyed_peas', name: 'Black-eyed Peas', localName: 'ਲੋਬੀਆ' },
+  { id: 'radish_pods', name: 'Radish Pods', localName: 'ਸਿੰਗਰੇ' },
 ];
 
 const summerComplementaryVegetables = [
@@ -69,7 +74,7 @@ const winterComplementaryVegetables = [
 ];
 
 export default function CloudFarmProgram() {
-  const [season, setSeason] = useState<'summer' | 'winter'>('summer');
+  const [season, setSeason] = useState<'summer' | 'winter'>('winter');
   const [detailsRevealed, setDetailsRevealed] = useState(false);
   const detailsRef = useRef<HTMLDivElement>(null);
   const practicalDetails = [
