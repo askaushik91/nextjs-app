@@ -89,6 +89,11 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ['/images/HeroImage.webp'],
   },
+  verification: {
+    other: {
+      'facebook-domain-verification': 's9ksorinxe7ywckjrw3ux23xh05hjm',
+    },
+  },
 };
 
 const localBusinessJsonLd = {

@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    other: {
+      'facebook-domain-verification': 's9ksorinxe7ywckjrw3ux23xh05hjm',
+    },
+  },
 };
 
 

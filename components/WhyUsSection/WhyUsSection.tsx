@@ -4,6 +4,7 @@ import { Button } from '@/components/Button/Button';
 import styles from './WhyUsSection.module.scss';
 
 import { IMAGES } from '@/lib/images';
+import { WAITLIST_HREF } from '@/lib/constants';
 
 const ArrowIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -70,7 +71,7 @@ export function WhyUsSection() {
             <div className={styles.ctaBar__texticon}>👋</div>
             <span>Start Your Organic <br />Farming Journey Today!</span>
           </div>
-          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" target='_blank' label="Join Waitlist" variant="primary" />
+          <Button href={WAITLIST_HREF} target="_blank" label="Join Waitlist" variant="primary" />
           </div>
       </div>
     </section>

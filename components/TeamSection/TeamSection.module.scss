@@ -277,6 +277,14 @@
     p.member__role {
       color: rgba($color-text-on-light, 0.62);
     }
+
+    &__instagram {
+      color: #e1306c;
+
+      &:hover {
+        color: #b92254;
+      }
+    }
   }
 }
 
