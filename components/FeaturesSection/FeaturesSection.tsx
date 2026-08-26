@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 const FEATURES = [
   {
-    title: 'Choose Your Plan',
-    description: 'Pick the farmland package for your family',
+    title: 'Join the waitlist',
+    description: ' We have limited slots, the waiting period can last from 6 months to a year',
     number: '1',
     icon: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,8 +17,8 @@ const FEATURES = [
     ),
   },
   {
-    title: 'We Cultivate',
-    description: 'Our farmers grow your organic vegetables',
+    title: 'Wait for an invite',
+    description: 'Invites sent on FCFS basis to serviceable locations',
     number: '2',
     icon: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,8 +38,8 @@ const FEATURES = [
     ),
   },
   {
-    title: 'Harvest & Pack',
-    description: 'Freshly harvested & packed with care',
+    title: 'Customise your farm',
+    description: 'Give a name to your farm, choose what you wish to grow',
     number: '3',
     icon: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,8 +61,8 @@ const FEATURES = [
     ),
   },
   {
-    title: 'Home Delivery',
-    description: 'Delivered fresh to your doorstep',
+    title: 'Start getting weekly deliveries',
+    description: 'Pluck your own veggies anytime or get weekly home-deliveries',
     number: '4',
     icon: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,16 +89,10 @@ export function FeaturesSection() {
       <div className={styles.section__container}>
         <div className={styles.section__grid}>
           <div className={styles.section__content}>
-            <h5 className={styles.section__subheading}>
-              How to join
-            </h5>
             <h2 id="features-heading" className={styles.section__heading}>
-              Simple. Natural. Reliable.
+              How to join
             </h2>
-            <p className={styles.section__text}>
-              Choose your farmland lease plan, and our expert team takes care of everything — from soil preparation and natural cultivation to harvesting and packing. Once your seasonal vegetables are ready, we deliver the fresh produce directly to your home, ensuring a seamless farm-to-door experience without any hassle.
-            </p>
-            <Button href="https://docs.google.com/forms/d/e/1FAIpQLSetAUBO65fr24rcCbxo4XJc-Un4gzQPMTNpqprLGasksVY3TQ/viewform" label="Get your bookings today" variant="primary" target="_blank" />
+            {/* <Button href="https://app.gillorganics.com/join" label="Join Waitlist" variant="primary" target="_blank" /> */}
           </div>
           <div className={styles.howItWorksOuter}>
             <ul className={styles.howItWorksOuter__list}>

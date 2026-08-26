@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './style.module.scss';
 
@@ -32,23 +33,100 @@ const mockPosts = [
   { id: 6, image: '/images/image6.jpg', alt: 'Beautiful sunset over the farmland' },
 ];
 
+interface Post {
+  id: string;
+  image: string;
+  permalink: string;
+  alt: string;
+}
+
 export function InstagramFeed() {
-  // NOTE FOR DEVELOPERS:
-  // If you decide to use a third-party automated feed (e.g. Behold.so, Elfsight, or LightWidget),
-  // you can easily replace the grid below with your widget iframe or script.
-  // For example:
-  // return (
-  //   <section className={styles.instagramSection}>
-  //     <div className={styles.container}>
-  //       <div className={styles.heading}>
-  //         <span>Social Media Feed</span>
-  //         <h2>Follow Us on Instagram</h2>
-  //         <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={styles.instagramHandle}>@gillorganics</a>
-  //       </div>
-  //       <div className={styles.widgetWrapper} dangerouslySetInnerHTML={{ __html: 'YOUR_WIDGET_CODE_HERE' }} />
-  //     </div>
-  //   </section>
-  // );
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchFeed() {
+      try {
+        const response = await fetch('/api/instagram');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const json = await response.json();
+        if (json.data && json.data.length > 0) {
+          const formattedPosts = json.data.map((item: any) => ({
+            id: item.id,
+            image: item.media_url,
+            permalink: item.permalink,
+            alt: item.caption || 'Instagram Post',
+          }));
+          setPosts(formattedPosts);
+        } else {
+          handleFallback();
+        }
+      } catch (err) {
+        console.error('Failed to fetch live feed, using mock posts:', err);
+        handleFallback();
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function handleFallback() {
+      setPosts(
+        mockPosts.map((p) => ({
+          id: String(p.id),
+          image: p.image,
+          permalink: INSTAGRAM_URL,
+          alt: p.alt,
+        }))
+      );
+    }
+
+    fetchFeed();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className={styles.instagramSection}>
+        <div className={styles.container}>
+          <div className={styles.heading}>
+            <span>Social Media Feed</span>
+            <h2>Follow Us on Instagram</h2>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.instagramHandle}
+            >
+              @gillorganics
+            </a>
+          </div>
+
+          <div className={styles.grid}>
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div key={idx} className={styles.gridItem}>
+                <div className={styles.imageWrapper}>
+                  <div className={styles.skeleton} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.ctaWrapper}>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.followButton}
+            >
+              <InstagramIcon />
+              <span>Follow @gillorganics</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={styles.instagramSection}>
@@ -69,10 +147,10 @@ export function InstagramFeed() {
 
         {/* Feed Grid */}
         <div className={styles.grid}>
-          {mockPosts.map((post) => (
+          {posts.map((post) => (
             <a
               key={post.id}
-              href={INSTAGRAM_URL}
+              href={post.permalink}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.gridItem}
@@ -85,6 +163,7 @@ export function InstagramFeed() {
                   fill
                   sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                   className={styles.image}
+                  unoptimized={post.image.startsWith('http')}
                 />
                 <div className={styles.overlay}>
                   <div className={styles.overlayContent}>

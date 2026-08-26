@@ -58,17 +58,17 @@
     padding: 0.5rem 1.75rem;
     border: 1px solid #72ff00;
     border-radius:18px 50px;
-    background: rgba(5, 45, 35, 0.9);
-    color: #72ff00;
+    background: #72ff00;
+    color: #052d23;
     font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 0.01em;
     text-transform: uppercase;
 
     &:hover {
-      border-color:black;
-      background: #72ff00;
-      color: black;
+      border-color: #72ff00;
+      background: rgba(5, 45, 35, 0.9);
+      color: #72ff00;
     }
 
     .button__arrow {

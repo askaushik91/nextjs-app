@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
+import { Button } from '@/components/Button/Button'
 import styles from './BannerSection.module.scss'
 
 export type BannerProps = {
@@ -61,6 +62,12 @@ const BannerSection = ({
           <p className={styles.description}>
             {description}
           </p>
+        )}
+
+        {btnText && btnPath && (
+          <div className={styles.buttonWrapper}>
+            <Button href={btnPath} label={btnText} />
+          </div>
         )}
       </div>
     </div>

@@ -174,16 +174,7 @@
     }
   }
 
-  a {
-    border-radius:15px 30px 15px 30px;
-    padding:15px 30px;
-    color:$color-white;
-    font-weight:400;
-    font-size:18px;
-    background:$color-text-on-light;
-    border:0px;
-    margin:0;
-  }
+
 
   &__texticon {
     font-size:52px;
@@ -288,10 +279,7 @@
     font-size: 28px;
   }
 
-  .ctaBar a {
-    padding: 12px 24px;
-    font-size: 16px;
-  }
+
 }
 
 @media (max-width: 480px) {
