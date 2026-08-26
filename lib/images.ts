@@ -16,7 +16,7 @@ export const IMAGES = {
   servicesinner: `${PLACEHOLDER_BASE}/servicesbanner.webp`,
   howworksinner: `${PLACEHOLDER_BASE}/howitworks.webp`,
   howworksvideo: `${PLACEHOLDER_BASE}/howWorksVideo.webp`,
-  programdetails: `${PLACEHOLDER_BASE}/PROGRAMDETAILSImage.webp`,
+  programdetails: `${PLACEHOLDER_BASE}/cloudfarm-left.jpg`,
   whyUs: `${PLACEHOLDER_BASE}/WhyChooseUs.webp`,
   testimonials: `${PLACEHOLDER_BASE}/testimonialBg.webp`,
   faqquest: `${PLACEHOLDER_BASE}/faqQuestions.png`,
