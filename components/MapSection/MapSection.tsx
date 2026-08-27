@@ -39,7 +39,6 @@ export function MapSection() {
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3433.9038221882676!2d76.31911601205314!3d30.418629299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3910311482032cb5%3A0xba17b27b57ed65e1!2sGill%20Organics%20-%20Cloud%20Farms!5e0!3m2!1sen!2sin!4v1717600000000!5m2!1sen!2sin"
         width="100%"
         height="500"
-        style={{ border: 0, display: 'block' }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
