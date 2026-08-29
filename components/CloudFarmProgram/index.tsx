@@ -152,7 +152,7 @@ export default function CloudFarmProgram() {
                 <li>On joining the program, you will be allotted a dedicated piece of farm land of ~150 sq. yd. for the season - Winter/Summer. A season lasts 6 months.</li>
                 <li>We share a list of ~20 items that can grow on your farm in that season and you choose which items you want on your farm - you may choose all. </li>
                 <li>Our team of expert farmers will sow and maintain your farm using 100% organic methods. Zero compromise on quality and authenticity.</li>
-                <li>Whatever your mini-farm produces in a week, it&apos;ll be harvested over the weekend and home delivered within 24 hours of harvesting and with no extra charge. One mini-farm gives enough weekly produce for the veggie/salad requirements of a family of 4-5 members.</li>
+                <li>Whatever your mini farm produces in a week will be harvested and home delivered within 24 hours of harvesting and with no extra charge. One mini-farm gives enough weekly produce for the veggie/salad requirements of a family of 4-5 members.</li>
                 <li>You can also come to the farm anytime you want for plucking and our helper will help you pluck the best veggies.</li>
                 <li>You can also access our Farmhouse for a quality time with your family (subject to availability). The Farmhouse has a traditional Punjab feel to it with exhibits like charkha, madhaani, bonfire, library etc. and all other basic amenities.</li>
                 <li>You will constantly be in touch with our team via our App and Whatsapp for any request or query or a status update on your farm.</li>
@@ -204,7 +204,7 @@ export default function CloudFarmProgram() {
               <div className={styles.cloudFarm__vegHeader}>
                 <div>
                   <p className={styles.cloudFarm__cardLabel}>Plan your plot</p>
-                  <h3>Seasonal Fruits &amp; Vegetables</h3>
+                  <h3>Seasonal Vegetables & Salads</h3>
                 </div>
               </div>
 
