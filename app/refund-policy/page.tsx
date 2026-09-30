@@ -10,8 +10,8 @@ const policySections = [
   {
     title: 'Service Duration and Commitment',
     paragraphs: [
-      'The service includes the cultivation and maintenance of your personalized organic farm for a fixed term of six (6) months, commencing in October and concluding in March, with weekly deliveries of fresh, organic vegetables. Each delivery will be curated based on seasonal availability and prevailing farm conditions.',
-      'The commencement and conclusion of deliveries will depend on the farm’s production capacity. Estimated dates for the first and final deliveries are at the end of October and March, respectively.',
+      'The service includes the cultivation and maintenance of your personalized organic farm for a fixed term of six (6) months, commencing in November and concluding in March (for Winter season), and commencing in April and concluding in October (for Summer season) , with weekly deliveries of fresh, organic vegetables. Each delivery will be curated based on seasonal availability and prevailing farm conditions.',
+      'The commencement and conclusion of deliveries will depend on the farm’s production capacity. Estimated dates for the first and final deliveries are at around the begining and ending of the season months.',
     ],
   },
   {
@@ -48,7 +48,11 @@ const policySections = [
   },
   {
     title: 'Force Majeure',
-    paragraphs: ['In circumstances beyond our control, including natural disasters, extreme weather conditions, strikes, or other unforeseeable events, deliveries may be delayed or cancelled without prior notice. We will make reasonable efforts to notify you of disruptions as soon as practicable.'],
+    paragraphs: [
+      'In circumstances beyond our control, including natural disasters, extreme weather conditions, strikes, or other unforeseeable events, deliveries may be delayed or cancelled without prior notice. We will make reasonable efforts to notify you of disruptions as soon as practicable.',
+      'By subscribing to a farm plot, the customer acknowledges and accepts the inherent risks and organic realities of localized agriculture. The subscriber agrees that all positive yields and adverse outcomes resulting from natural forces, environmental factors, or circumstances outside the direct control of the business are shared realities of farm adoption.',
+      'Consequently, the business shall bear no liability or legal responsibility for diminished yields, crop failures, or total production deficits arising from such events, and no refunds shall be issued under any circumstances for situations resulting from agricultural risks or force majeure. While the business may, at its sole and absolute discretion, elect to provide complimentary items or alternative compensations to offset losses, it is under no legal obligation to do so.'
+    ],
   },
   {
     title: 'Customer Responsibilities',
